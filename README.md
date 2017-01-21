@@ -58,9 +58,11 @@ https://pragprog.com/book/phoenix/programming-phoenix
 it's written by @chrismccord who _created_ Phoenix.  <br />
 (_i.e: it's the obvious choice for how to learn Phoenix!_)
 
+<br /><br /><br />
 
 
-## tl;dr
+
+## _Questions_ ?
 
 ### Do I _need_ to learn Elixir `before` trying/using Phoenix?
 
