@@ -13,8 +13,6 @@ As web application developers we _need_ to _leverage_
 the work that other (_really smart_) people have done
 instead of building things "_from scratch_" all the time.
 
-The "original" productive web frameworks
-were "Ruby-on-Rails" and "Django" (_python_) https://en.wikipedia.org/wiki/Django_(web_framework)
 
 
 ### But Phoenix is not "_Mainstream_" ... Should I _use_ it?
@@ -24,11 +22,12 @@ https://en.wikipedia.org/wiki/Comparison_of_web_frameworks <br />
 So _why_ would _anyone_ select a framework written in a programming language
 that is not "_mainstream_"...?
 
-
 > "_**Elixir** provides the **joy** and **productivity** of Ruby <br />
 with the **concurrency** and **fault-tolerance** of **Erlang**_."
 
-
+Note: **all** the "_Why_" reasons
+for ***Elixir*** _also apply_ to ***Phoenix***! <br />
+check them out: https://github.com/dwyl/learn-elixir#why
 
 
 ## _What_?
@@ -115,7 +114,56 @@ They are simple, efficient and
 scale really well!  <br />
 see: https://github.com/dwyl/learn-aws-lambda
 
-### Why _not_ Use Scala and `Play` Framework _instead_...?
+### What's "Wrong" with using Rails or Django?
+
+The _original_ "_productive_" web frameworks
+were "Ruby-on-Rails" and "Django" (_python_) back in 2005! <br />
+(We _used_ both of these for periods in our "_journey_" and
+can speak on the _advantages_ of each of them!) <br />
+
+> There is "_nothing wrong_" with using Rails or Django. <br />
+> We think there are still plenty of use-cases for both frameworks. <br />
+> We just _know_ that it's (_a lot_) _easier_ to build "real-time" <br />
+> with Phoenix because "Channels" (_WebSockets_) are baked in, <br />
+> and the Elixir/Erlang concurrency is a whole different ballgame! <br />
+> Erlang (and thus Phoenix) can handle
+***millions*** of _concurrent users_ on a single server,<br />
+> whereas a Rails/Django server can only handle a few thousand (_at best_!) <br />
+> if your app is only serving a few thousand people at once, then you're fine!!
+
+We ***love*** the fact that Erlang uses "_lighweight long-lived_" processes, <br />
+which means we can connect _millions_ of (_IoT_) devices ...
+For IoT Erlang is (_unquestionably_) the Answer! <br />
+For simpler web apps where you only expect a few users per day,
+Rails/Django are still viable.
+
+But **why _compromise_** if you **don't _have_ to**? <br />
+If you can have a [***Tesla***](http://www.cnbc.com/2015/08/27/teslas-p85d-is-the-best-car-consumer-reports-has-ever-tested.html) for the "price" of a Ford Focus,
+why _wouldn't_ you?!? <br />
+Why _settle_ for _good_ when you can _easily_ have/use the ***best***?
+
+#### But GitHub Still Uses Rails ... Surely GitHub is "_Scalable_"?
+
+***Yes***, GitHub is still using Rails for their Web App/Site. <br />
+But ask _any_ of the _core_ team at GitHub if (_given the chance to start over_)
+they would _chose_ Rails<br />
+to build GitHub in 2017, and see how many of them say "_yes, of course_"
+(_with a straight face..._)!
+
+Also, GitHub does a _lot_ of things to Scale Rails in the background. <br />
+And _many_ of their _newer_ (_client-side_) features are written in JavaScript!
+see: https://github.com/github
+
+> Bottom line is: _anything_ can be _made_ to scale using "DevOps", <br />
+> but ***Phoenix*** is _made_ to **scale** by `default`
+> because Erlang (was) _invented_ (to) scale!
+
+
+### Why _NOT_ Use Go?
+
+Read: https://www.reddit.com/r/elixir/comments/3c8yfz/how_does_go_compare_to_elixir/
+
+### Why _NOT_ Use Scala and `Play` Framework _instead_...?
 
 If you are already used to writing Java or deploying to the JVM,
 the Play Framework is a _superb_ choice: https://www.playframework.com <br />
