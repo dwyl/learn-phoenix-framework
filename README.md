@@ -13,7 +13,8 @@ As web application developers we _need_ to _leverage_
 the work that other (_really smart_) people have done
 instead of building things "_from scratch_" all the time.
 
-The "original"
+The "original" productive web frameworks
+were "Ruby-on-Rails" and "Django" (_python_) https://en.wikipedia.org/wiki/Django_(web_framework)
 
 
 ### But Phoenix is not "_Mainstream_" ... Should I _use_ it?
@@ -57,6 +58,12 @@ Meanwhile, we recommend that people buy (_or **borrow**_) the book:
 https://pragprog.com/book/phoenix/programming-phoenix
 it's written by @chrismccord who _created_ Phoenix.  <br />
 (_i.e: it's the obvious choice for how to learn Phoenix!_)
+
+
+## Resources
+
++ Elixir vs Ruby Showdown - Phoenix vs Rails: https://littlelines.com/blog/2014/07/08/elixir-vs-ruby-showdown-phoenix-vs-rails
++ Benchmark: https://github.com/mroth/phoenix-showdown
 
 <br /><br /><br />
 
