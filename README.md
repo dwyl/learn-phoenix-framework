@@ -79,6 +79,64 @@ it's written by @chrismccord who _created_ Phoenix.  <br />
 <br /><br /><br />
 
 
+# _Our Top 10_ Reasons _Why_ Phoenix
+
+> "_**Phoenix** provides the **productivity** of Ruby-on-Rails <br />
+with the **concurrency** and **fault-tolerance** of **Erlang**_."
+
+0. Beyond all the (_fantastic_) technical benefits,
+what attracts _us_ to Phoenix is the ***Great Community***
+of people around the world who are _excited_ about making Phoenix
+an _amazing_ tool for building web apps! Having _welcomming_ people
+who will
+  + help you when you get stuck, patiently explaining things
+  + answer questions (_both "**noob**" and "**advanced**"_) and
+  + openly discuss your ideas for improvements. <br />
+ <br />
+1. Phoenix uses the **Elixir** programming language which means your
+app is compiled and run on the ***Erlang Virtual Machine*** "BEAM". <br />
+Erlang is a battle-tested highly fault-tolerant VM used by
+_many_ telecommunications companies
+
+2. **WebSockets** ("_channels_") are ***built-in*** to the framework
+which means building apps with "real-time" communication and interaction
+is _much_ easier than virtually _any_ other framework/platform!
+(_no third-party `magic` module needed! **everything you need** is
+  already there ready for you to serve **millions** of people!!_) <br />
+see: http://www.phoenixframework.org/docs/channels
+
+3. **Easy _asyncrhonisity_** because all programming
+in Phoenix (_Elixir_) is ***Functional***!
+This means it's _really_ simple to abstract useful functionality
+like request authentication, logging and processing into "_piplines_"
+that are easily ***human-readable***! (_no third-party `async` module required! no "promises", "generators" or "observables" to managed!!_)
+
+4. ***Security & Resilience Mindset*** is the `default`.
+**Encryption** (SSL) is ***easy*** in Pheonix/Elixir and
+both ***mitigation*** of **SQL injection**
+and ***CSRF protection*** are **built-in** so
+it's virtually impossible for a "_novice_" programmer
+to introduce this type of security bug.
+
+5. ***Concise Code*** cannot be _understated_! We can write _way fewer_
+lines than in the _equivalent_ Node.js/Java/Rails/Go app, this means
+developers are more _productive_ and there is ***less code to maintain***!
+
+5. ***Testability*** due to functional programming of all controllers!
+6. **Easy Deployment**: http://www.phoenixframework.org/docs/heroku
+7. ***Zero-downtime Deployment*** is ***free***! (_again because of Erlang_). Erlang manages transitioning "_live/active_" users from the old to new version of your app without them even _noticing_ that it was upgraded/updated!!
+8. ***Built-in Monitoring/Managment*** of your app through Erlang supervisors
+mean that you know _exactly_ how your app is performing, what parts have
+crashed/restarted and why! This is a feature we _pay_ (_a lot_) for in other frameworks and here it's ***free***!!
+
+> **Note**: **all** the reasons "***Why***"
+for ***Elixir*** _also apply_ to ***Phoenix***! <br />
+check them out: https://github.com/dwyl/learn-elixir#why
+
+Can _you_ think of _another_ reason why using Phoenix is great?!
+Share your thoughts in an issue: 
+
+<br /><br /><br />
 
 # _Questions_ ?
 
