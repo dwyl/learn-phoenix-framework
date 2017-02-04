@@ -161,7 +161,10 @@ see: https://github.com/github
 
 ### Why _NOT_ Use Go?
 
-Read: https://www.reddit.com/r/elixir/comments/3c8yfz/how_does_go_compare_to_elixir/
+Read:
+https://www.reddit.com/r/elixir/comments/3c8yfz/how_does_go_compare_to_elixir
+<br />
+(`help wanted` expanding this answer...)
 
 ### Why _NOT_ Use Scala and `Play` Framework _instead_...?
 
