@@ -2,37 +2,49 @@
 
 ![phoenix framework logo](https://cloud.githubusercontent.com/assets/194400/22605039/2065bca4-ea46-11e6-93f9-c927218784a9.png)
 
-Learn how to use Phoenix (_the most **productive** web application_) Framework
-to build apps<br />
-that are a joy to _use_ and work on, ***fast***,
-***reliable***, ***scalable*** and ***maintainable***!
+Learn how to use Phoenix Framework to
+**have _fun_ building _real-time_ web/mobile apps** <br />
+that are ***fast*** for "_end-users_", ***reliable***,
+***scalable***, ***maintainable*** _and_ (_easily_) ***extensible***!
 
 ## _Why_?
 
-As web application developers we _need_ to _leverage_
-the work that other (_really smart_) people have done
-instead of building things "_from scratch_" all the time.
+As web/mobile app developers we _need_ to _leverage_
+the work that other (_really smart_) people have done <br />
+instead of building things "_from scratch_" all the time;
+that is _why_ we build apps using _frameworks_.
 
+There are _many_ frameworks to choose from
+(_a **few** "popular" ones are mentioned **below**
+in the "**Questions**" section_). <br />
+But if we go by what is "_popular_" we would
+still be riding horses (_and carts_) to work
+and no _progress_ would be made. <br />
 
+Phoenix is like having a
+[***jetpack***](https://youtu.be/H0ftAwlAB9o) (_with **unlimited free environmentally-friendly fuel**_!!); <br />
+it gets you (_your app_) to where you need to be ***so much faster***! <br />
 
-### But Phoenix is not "_Mainstream_" ... Should I _use_ it?
-
-There are _many_ web application frameworks you/we can choose from:
-https://en.wikipedia.org/wiki/Comparison_of_web_frameworks <br />
-So _why_ would _anyone_ select a framework written in a programming language
-that is not "_mainstream_"...?
-
-> "_**Elixir** provides the **joy** and **productivity** of Ruby <br />
-with the **concurrency** and **fault-tolerance** of **Erlang**_."
-
-Note: **all** the "_Why_" reasons
-for ***Elixir*** _also apply_ to ***Phoenix***! <br />
-check them out: https://github.com/dwyl/learn-elixir#why
+_Seriously_, once you _deploy_ your first Phoenix app
+_**you will feel** like you're **freakin' Iron** ~~Man~~ **Person**!_
+![iron-man-flying](https://cloud.githubusercontent.com/assets/194400/22628358/9ca42c58-ebca-11e6-8729-bc0103284312.jpg)
+You won't want to "_walk_" anywhere (_use a lesser means of web development_)
+_ever again_!
 
 
 ## _What_?
 
-A web application framework that without compromise!
+A web application framework ***without compromise***! <br />
+
+You can spend years and mountains of money
+"_performance tuning_" an "_old car_" attempting to make it go _faster_ ...
+
+Just like there is an _entire industry_ involved in "_tuning_"
+"_average_" cars (_that weren't made for high performance!_)
+there's a similar one for "_optimsing_"
+
+(_e.g:
+feeding it all the
 
 > Read more: http://www.phoenixframework.org/
 
@@ -68,7 +80,7 @@ it's written by @chrismccord who _created_ Phoenix.  <br />
 
 
 
-## _Questions_ ?
+# _Questions_ ?
 
 ### Do I _need_ to learn Elixir `before` trying/using Phoenix?
 
@@ -80,6 +92,13 @@ it's written by @chrismccord who _created_ Phoenix.  <br />
 call Erlang functions when required, <br />
 but you ***don't need*** to know Erlang
 `before` you can use Phoenix!
+
+### But Phoenix is _not_ "_Mainstream_" ... Should I/we _use_ it...?
+
+There are _many_ web application frameworks you/we can choose from:
+https://en.wikipedia.org/wiki/Comparison_of_web_frameworks <br />
+So _why_ would _anyone_ select a framework written in a programming language
+that is not "_mainstream_"...?
 
 ### Why are we not using Hapi.js _anymore_...?
 
