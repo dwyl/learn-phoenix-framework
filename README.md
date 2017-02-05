@@ -11,8 +11,10 @@ that are ***fast*** for "_end-users_", ***reliable***,
 
 As web/mobile app developers we _need_ to _leverage_
 the work that other (_really smart_) people have done <br />
-instead of building things "_from scratch_" all the time;
-that is _why_ we build apps using _frameworks_.
+instead of constantly building things "_from scratch_" all the time;
+that is _why_ we use _frameworks_ to build our apps!
+
+> See: "**Top 10 Reasons Why Phoenix**" (_further down this page!_)
 
 There are _many_ frameworks to choose from
 (_a **few** "popular" ones are mentioned **below**
@@ -31,40 +33,77 @@ _**you will feel** like you're **freakin' Iron** ~~Man~~ **Person**!_
 You won't want to "_walk_" anywhere (_use a lesser means of web development_)
 _ever again_!
 
+> **Note**: **all** the reasons "***Why***"
+for ***Elixir*** _also apply_ to ***Phoenix***! <br />
+check them out: https://github.com/dwyl/learn-elixir#why <br />
 
 ## _What_?
 
 A web application framework ***without compromise***! <br />
 
-You can spend years and mountains of money
-"_performance tuning_" an "_old car_" attempting to make it go _faster_ ...
+### Metaphor
+
+You can spend years (_and **mountains** of **money**_)
+"***performance tuning***" an
+["_old banger_"](https://en.wikipedia.org/wiki/Decrepit_car)
+attempting to make it go _faster_ ...
 ![car-mod-fail](https://cloud.githubusercontent.com/assets/194400/22628288/41afc3d0-ebc9-11e6-98f3-67a1bc3a1411.png "Click image to enlarge for full glory!")
 <sup> See more car mod fails at: http://www.ridelust.com/30-custom-cars-from-around-the-world
 and/or http://www.bobatoo.co.uk/blog/the-10-worst-car-modifications-ever/</sup>
 
-***Or***... just _buy the car that was built for speed, safety and environmental friendliness and stop wasting your time on the past!
+***Or***... just _get_ the **best** car that was built for speed, safety and environmental friendliness and stop wasting your time on the past!
 
 ![model-s-photo](https://cloud.githubusercontent.com/assets/194400/22628333/e8a107ee-ebc9-11e6-9140-6be11cdddd87.jpg "Tesla Model S") <br />
 
-
-Just like there is an _entire industry_ involved in "_tuning_"
+Just like there is an _entire industry_ involved in "_tuning_" distinctly
 "_average_" cars (_that weren't made for high performance!_)
 there's a similar one for "_optimsing_" slow web applications.
+Organizations end up spending _way_ more time and money
+(_"engineering" consultants and server resources_!)
+trying to make their "_old tech_" scale or serve more (_concurrent users_),
+than they would simply making smarter tech choices.
 
->If you are in the _fortunate_ position to be considering something _new_
-for your _next_ project, look no further than Phoenix!
-> Read more: http://www.phoenixframework.org/
+### (Should I _Care_ About) Benchmarks?
+
+_Obviously_, you should run your _own_ benchmarks on your own hardware/cloud
+and make _informed_ decisions based on the _requirements_ of your app/product,
+but ... when we _read_ the stats for how many ***concurrent users***
+a Phoenix App can handle (_with live WebSocket connections_)
+we were _blown_ away!
+
+#### Performance Highlights
+
++ ***considerably lower latency*** and request response time than _anything_ else! (_thanks to Erlang's lightweight processes and ultra-efficient network/message handling_)
++ ***4x*** more requests-per-second than the
+equivalent Node.js (_Express.js_) App.
++ ***9x*** more throughput than a Python 2.7 based app. (_blocking really sucks!_)
++ ***10x - 100x*** more requests handled than Ruby-on-Rails
+(_depending on the type of app!_)
+
+All of this means that you spend _considerably_ less money
+on Hardware/Cloud infrastructure so your app/company
+can gain a ***competitive advantage*** on **cost**.
+
+
+>If you are in the _fortunate_ position to be _considering_ using
+something _way better_ for your _next_ project,
+look no further than Phoenix! <br />
+> Read more: http://www.phoenixframework.org
 
 
 ## _How_?
 
+### Assumptions / Pre-Requisites?
 
+> https://github.com/dwyl/learn-elixir
+
+### "Hello World" Example (_5 Mins_)
+
+ > TODO: add a _basic but practical_ tutorial here ... `help wanted`
 
 ### _Next_?
 
 _Familiarize_ yourself with: http://www.phoenixframework.org/docs/up-and-running
-
- > TODO: add a _basic but practical_ tutorial here ... `help wanted`
 
 Meanwhile, we recommend that people buy (_or **borrow**_) the book: <br />
 ![phoenix](https://cloud.githubusercontent.com/assets/194400/22609006/33e03f96-ea57-11e6-97b3-f0606998400d.png) <br />
@@ -140,16 +179,15 @@ developers are more _productive_ and there is ***less code to maintain***!
 mean that you know _exactly_ how your app is performing, what parts have
 crashed/restarted and why! This is a feature we _pay_ (_a lot_) for in other frameworks and here it's ***free***!!
 
-> **Note**: **all** the reasons "***Why***"
-for ***Elixir*** _also apply_ to ***Phoenix***! <br />
-check them out: https://github.com/dwyl/learn-elixir#why
 
-Can _you_ think of _another_ reason why using Phoenix is great?!
-Share your thoughts in an issue:
+Can _you_ think of _another_ reason
+_why_ using Phoenix is ***awesome***?! <br />
+***Please Share your thoughts*** in this thread:
+https://github.com/dwyl/learn-phoenix-framework/issues/13
 
 <br /><br /><br />
 
-# _Questions_ ?
+# _Questions_?
 
 ### Do I _need_ to learn Elixir `before` trying/using Phoenix?
 
