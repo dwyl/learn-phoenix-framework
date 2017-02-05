@@ -2,39 +2,162 @@
 
 ![phoenix framework logo](https://cloud.githubusercontent.com/assets/194400/22605039/2065bca4-ea46-11e6-93f9-c927218784a9.png)
 
-Learn how to use Phoenix (_the most **productive** web application_) Framework
-to build apps<br />
-that are a joy to _use_ and work on, ***fast***,
-***reliable***, ***scalable*** and ***maintainable***!
+Learn how to use Phoenix Framework to
+**have _fun_ building _real-time_ web/mobile apps** <br />
+that are ***fast*** for "_end-users_", ***reliable***,
+***scalable***, ***maintainable*** _and_ (_easily_) ***extensible***!
 
 ## _Why_?
 
-As web application developers we _need_ to _leverage_
-the work that other (_really smart_) people have done
-instead of building things "_from scratch_" all the time.
+As web/mobile app developers we _need_ to _leverage_
+the work that other (_really smart_) people have done <br />
+instead of constantly building things "_from scratch_" all the time;
+that is _why_ we use _frameworks_ to build our apps!
 
+> See: "**Top 10 Reasons Why Phoenix**" (_further down this page!_)
 
+There are _many_ frameworks to choose from
+(_a **few** "popular" ones are mentioned **below**
+in the "**Questions**" section_). <br />
+But if we go by what is "_popular_" we would
+still be riding horses (_and carts_) to work
+and no _progress_ would be made. <br />
 
-### But Phoenix is not "_Mainstream_" ... Should I _use_ it?
+Phoenix is like having a
+[***jetpack***](https://youtu.be/H0ftAwlAB9o) (_with **unlimited free environmentally-friendly fuel**_!!); <br />
+it gets you (_your app_) to where you need to be ***so much faster***! <br />
 
-There are _many_ web application frameworks you/we can choose from:
-https://en.wikipedia.org/wiki/Comparison_of_web_frameworks <br />
-So _why_ would _anyone_ select a framework written in a programming language
-that is not "_mainstream_"...?
+_Seriously_, once you _deploy_ your first Phoenix app
+_**you will feel** like you're **freakin' Iron** ~~Man~~ **Person**!_
+![iron-man-flying](https://cloud.githubusercontent.com/assets/194400/22628358/9ca42c58-ebca-11e6-8729-bc0103284312.jpg)
+You won't want to "_walk_" anywhere (_use a lesser means of web development_)
+_ever again_!
 
-> "_**Elixir** provides the **joy** and **productivity** of Ruby <br />
-with the **concurrency** and **fault-tolerance** of **Erlang**_."
-
-Note: **all** the "_Why_" reasons
+> **Note**: **all** the reasons "***Why***"
 for ***Elixir*** _also apply_ to ***Phoenix***! <br />
-check them out: https://github.com/dwyl/learn-elixir#why
-
+check them out: https://github.com/dwyl/learn-elixir#why <br />
 
 ## _What_?
 
-A web application framework that without compromise!
+A web application framework ***without compromise***! <br />
 
-> Read more: http://www.phoenixframework.org/
+### Metaphor
+
+You can spend years (_and **mountains** of **money**_)
+"***performance tuning***" an
+["_old banger_"](https://en.wikipedia.org/wiki/Decrepit_car)
+attempting to make it go _faster_ ...
+![car-mod-fail](https://cloud.githubusercontent.com/assets/194400/22628288/41afc3d0-ebc9-11e6-98f3-67a1bc3a1411.png "Click image to enlarge for full glory!")
+<sup> See more car mod fails at: http://www.ridelust.com/30-custom-cars-from-around-the-world
+and/or http://www.bobatoo.co.uk/blog/the-10-worst-car-modifications-ever/</sup>
+
+***Or***... just _get_ the **best** car that was built for speed, safety and environmental friendliness and stop wasting your time on the past!
+
+![model-s-photo](https://cloud.githubusercontent.com/assets/194400/22628333/e8a107ee-ebc9-11e6-9140-6be11cdddd87.jpg "Tesla Model S") <br />
+
+Just like there is an _entire industry_ involved in "_tuning_" distinctly
+"_average_" cars (_that weren't made for high performance!_)
+there's a similar one for "_optimsing_" slow web applications.
+Organizations end up spending _way_ more time and money
+(_"engineering" consultants and server resources_!)
+trying to make their "_old tech_" scale or serve more (_concurrent users_),
+than they would simply making smarter tech choices.
+
+### (Should I _Care_ About) Benchmarks?
+
+_Obviously_, you should run your _own_ benchmarks on your own hardware/cloud
+and make _informed_ decisions based on the _requirements_ of your app/product,
+but ... when we _read_ the stats for how many ***concurrent users***
+a Phoenix App can handle (_with live WebSocket connections_)
+we were _blown_ away!
+
+#### Performance Highlights
+
++ ***considerably lower latency*** and request response time than _anything_ else! (_thanks to Erlang's lightweight processes and ultra-efficient network/message handling_)
++ ***4x*** more requests-per-second than the
+equivalent Node.js (_Express.js_) App.
++ ***9x*** more throughput than a Python 2.7 based app. (_blocking really sucks!_)
++ ***10x - 100x*** more requests handled than Ruby-on-Rails
+(_depending on the type of app!_)
++ _Similar_ performance to **Go** on a _single server_,
+but a _much_ simpler multi-server concurrency model,
+so ***horizontal scaling*** across multiple data centers
+("availability zones") is _much easier_! (_Erlang manages the resources
+  for multiple servers/processors as a single app "fleet"
+  and delegates requests/processing to them across clusters/zones_!)
+
+All of this means that you spend _considerably_ less money
+on Hardware/Cloud infrastructure so your app/company
+can gain a ***competitive advantage*** on **cost**.
+
+
+>If you are in the _fortunate_ position to be _considering_ using
+something _way better_ for your _next_ project,
+look no further than Phoenix! <br />
+> Read more: http://www.phoenixframework.org
+
+## _How_?
+
+### Assumptions / Pre-Requisites?
+
+> Developer Checklist?
+
+#### Elixir
+
+You _cannot_ build a Phoenix App without knowing Elixir. <br />
+So if you are new to Elixir, "star" (_bookmark_) `this` repo <br />
+and then go to: [github.com/dwyl/**learn-elixir**](https://github.com/dwyl/learn-elixir)
+
+_Specifically_ you should focus on learning the Elixir "Basics":
++ types of data
++ atoms
++ pattern matching
++ maps
++ function definitions
++ modules
+
+#### Node.js
+
+Phoenix uses Node.js (_specifically_ http://brunch.io) to compile
+assets like JavaScript and CSS files. <br />
+Simply ensure you have Node.js _installed_. <br />
+You don't need to _know_ how to use Node to use Phoenix.
+
+
+
+### "Hello World" Example (_5 Mins_)
+
+ > TODO: add a _basic but practical_ tutorial here ... `help wanted`
+
+### _Next_?
+
+_Familiarize_ yourself with: http://www.phoenixframework.org/docs/up-and-running
+
+Meanwhile, we recommend that people buy (_or **borrow**_) the book: <br />
+![phoenix](https://cloud.githubusercontent.com/assets/194400/22609006/33e03f96-ea57-11e6-97b3-f0606998400d.png) <br />
+see: https://pragprog.com/book/phoenix/programming-phoenix <br />
+it's written by @chrismccord who _created_ Phoenix.  <br />
+(_i.e: it's the obvious choice for how to learn Phoenix!_)
+
+<br /> <br /> <br />
+
+## _Who_?
+
+_Many_ people/teams/companies are _already_
+using Erlang/Elixir and Phoenix and seeing phenomenal results! <br />
+Including: Pinterest, Groupon (Fave), Lonely Planet, Brightcove ...
+See: https://github.com/doomspork/elixir-companies
+
+### Who _Should_ Learn Phoenix?
+
+> `help wanted` augmenting this section ...
+discuss: https://github.com/dwyl/learn-phoenix-framework/issues/14
+
+
+## Resources
+
++ Elixir vs Ruby Showdown - Phoenix vs Rails: https://littlelines.com/blog/2014/07/08/elixir-vs-ruby-showdown-phoenix-vs-rails
++ Benchmark: https://github.com/mroth/phoenix-showdown
 
 ### Video Intro by José Valim (_Creator of Elixir_)
 
@@ -44,31 +167,68 @@ https://youtu.be/MD3P7Qan3pw
 [![ElixirConf 2016 - Keynote by José Valim](https://cloud.githubusercontent.com/assets/194400/22608199/743b69d4-ea53-11e6-8153-e6655fc64453.png)](https://youtu.be/srtMWzyqdp8 "Click to watch!") <br />
 https://youtu.be/srtMWzyqdp8
 
-
-## _How_?
-
-_Familiarize_ yourself with: http://www.phoenixframework.org/docs/up-and-running
-
- > TODO: add a _basic but practical_ tutorial here ... `help wanted`
-
-Meanwhile, we recommend that people buy (_or **borrow**_) the book:
-![phoenix](https://cloud.githubusercontent.com/assets/194400/22609006/33e03f96-ea57-11e6-97b3-f0606998400d.png)
-
-https://pragprog.com/book/phoenix/programming-phoenix
-it's written by @chrismccord who _created_ Phoenix.  <br />
-(_i.e: it's the obvious choice for how to learn Phoenix!_)
-
-
-## Resources
-
-+ Elixir vs Ruby Showdown - Phoenix vs Rails: https://littlelines.com/blog/2014/07/08/elixir-vs-ruby-showdown-phoenix-vs-rails
-+ Benchmark: https://github.com/mroth/phoenix-showdown
-
 <br /><br /><br />
 
 
+# _Our Top 10_ Reasons _Why_ Phoenix
 
-## _Questions_ ?
+> "_**Phoenix** provides the **productivity** of Ruby-on-Rails <br />
+with the **concurrency** and **fault-tolerance** of **Erlang**_."
+
+0. Beyond all the (_fantastic_) technical benefits,
+what attracts _us_ to Phoenix is the ***Great Community***
+of people around the world who are _excited_ about making Phoenix
+an _amazing_ tool for building web apps! Having _welcomming_ people
+who will
+  + help you when you get stuck, patiently explaining things
+  + answer questions (_both "**noob**" and "**advanced**"_) and
+  + openly discuss your ideas for improvements. <br />
+ <br />
+1. Phoenix uses the **Elixir** programming language which means your
+app is compiled and run on the ***Erlang Virtual Machine*** "BEAM". <br />
+Erlang is a battle-tested highly fault-tolerant VM used by
+_many_ telecommunications companies
+
+2. **WebSockets** ("_channels_") are ***built-in*** to the framework
+which means building apps with "real-time" communication and interaction
+is _much_ easier than virtually _any_ other framework/platform!
+(_no third-party `magic` module needed! **everything you need** is
+  already there ready for you to serve **millions** of people!!_) <br />
+see: http://www.phoenixframework.org/docs/channels
+
+3. **Easy _asyncrhonisity_** because all programming
+in Phoenix (_Elixir_) is ***Functional***!
+This means it's _really_ simple to abstract useful functionality
+like request authentication, logging and processing into "_piplines_"
+that are easily ***human-readable***! (_no third-party `async` module required! no "promises", "generators" or "observables" to managed!!_)
+
+4. ***Security & Resilience Mindset*** is the `default`.
+**Encryption** (SSL) is ***easy*** in Pheonix/Elixir and
+both ***mitigation*** of **SQL injection**
+and ***CSRF protection*** are **built-in** so
+it's virtually impossible for a "_novice_" programmer
+to introduce this type of security bug.
+
+5. ***Concise Code*** cannot be _understated_! We can write _way fewer_
+lines than in the _equivalent_ Node.js/Java/Rails/Go app, this means
+developers are more _productive_ and there is ***less code to maintain***!
+
+5. ***Testability*** due to functional programming of all controllers!
+6. **Easy Deployment**: http://www.phoenixframework.org/docs/heroku
+7. ***Zero-downtime Deployment*** is ***free***! (_again because of Erlang_). Erlang manages transitioning "_live/active_" users from the old to new version of your app without them even _noticing_ that it was upgraded/updated!!
+8. ***Built-in Monitoring/Managment*** of your app through Erlang supervisors
+mean that you know _exactly_ how your app is performing, what parts have
+crashed/restarted and why! This is a feature we _pay_ (_a lot_) for in other frameworks and here it's ***free***!!
+
+
+Can _you_ think of _another_ reason
+_why_ using Phoenix is ***awesome***?! <br />
+***Please Share your thoughts*** in this thread:
+https://github.com/dwyl/learn-phoenix-framework/issues/13
+
+<br /><br /><br />
+
+# _Questions_?
 
 ### Do I _need_ to learn Elixir `before` trying/using Phoenix?
 
@@ -80,6 +240,13 @@ it's written by @chrismccord who _created_ Phoenix.  <br />
 call Erlang functions when required, <br />
 but you ***don't need*** to know Erlang
 `before` you can use Phoenix!
+
+### But Phoenix is _not_ "_Mainstream_" ... Should I/we _use_ it...?
+
+There are _many_ web application frameworks you/we can choose from:
+https://en.wikipedia.org/wiki/Comparison_of_web_frameworks <br />
+So _why_ would _anyone_ select a framework written in a programming language
+that is not "_mainstream_"...?
 
 ### Why are we not using Hapi.js _anymore_...?
 
@@ -161,7 +328,10 @@ see: https://github.com/github
 
 ### Why _NOT_ Use Go?
 
-Read: https://www.reddit.com/r/elixir/comments/3c8yfz/how_does_go_compare_to_elixir/
+Read:
+https://www.reddit.com/r/elixir/comments/3c8yfz/how_does_go_compare_to_elixir
+<br />
+(`help wanted` expanding this answer...)
 
 ### Why _NOT_ Use Scala and `Play` Framework _instead_...?
 
@@ -200,3 +370,5 @@ is **easier** to test and maintain_.
 If you have _evidence_ that "_Scala is Simpler_"
 we would _love_ to hear from you! <br />
 Tell us: https://github.com/dwyl/learn-phoenix-web-development/issues
+
+#### _Please_ ask more questions: https://github.com/dwyl/learn-phoenix-framework/issues
