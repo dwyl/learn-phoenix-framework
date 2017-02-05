@@ -100,7 +100,30 @@ look no further than Phoenix! <br />
 
 ### Assumptions / Pre-Requisites?
 
-> https://github.com/dwyl/learn-elixir
+> Developer Checklist?
+
+#### Elixir
+
+You _cannot_ build a Phoenix App without knowing Elixir. <br />
+So if you are new to Elixir, "star" (_bookmark_) `this` repo <br />
+and then go to: [github.com/dwyl/**learn-elixir**](https://github.com/dwyl/learn-elixir)
+
+_Specifically_ you should focus on learning the Elixir "Basics":
++ types of data
++ atoms
++ pattern matching
++ maps
++ function definitions
++ modules
+
+#### Node.js
+
+Phoenix uses Node.js (_specifically_ http://brunch.io) to compile
+assets like JavaScript and CSS files. <br />
+Simply ensure you have Node.js _installed_. <br />
+You don't need to _know_ how to use Node to use Phoenix.
+
+
 
 ### "Hello World" Example (_5 Mins_)
 
