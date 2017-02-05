@@ -38,15 +38,46 @@ A web application framework ***without compromise***! <br />
 
 You can spend years and mountains of money
 "_performance tuning_" an "_old car_" attempting to make it go _faster_ ...
+![car-mod-fail](https://cloud.githubusercontent.com/assets/194400/22628288/41afc3d0-ebc9-11e6-98f3-67a1bc3a1411.png "Click image to enlarge for full glory!")
+<sup> See more car mod fails at: http://www.ridelust.com/30-custom-cars-from-around-the-world
+and/or http://www.bobatoo.co.uk/blog/the-10-worst-car-modifications-ever/</sup>
+
+***Or***... just _buy the car that was built for speed, safety and environmental friendliness and stop wasting your time on the past!
+
+![model-s-photo](https://cloud.githubusercontent.com/assets/194400/22628333/e8a107ee-ebc9-11e6-9140-6be11cdddd87.jpg "Tesla Model S") <br />
+
 
 Just like there is an _entire industry_ involved in "_tuning_"
 "_average_" cars (_that weren't made for high performance!_)
-there's a similar one for "_optimsing_"
+there's a similar one for "_optimsing_" slow web applications.
 
-(_e.g:
-feeding it all the
-
+>If you are in the _fortunate_ position to be considering something _new_
+for your _next_ project, look no further than Phoenix!
 > Read more: http://www.phoenixframework.org/
+
+
+## _How_?
+
+
+
+### _Next_?
+
+_Familiarize_ yourself with: http://www.phoenixframework.org/docs/up-and-running
+
+ > TODO: add a _basic but practical_ tutorial here ... `help wanted`
+
+Meanwhile, we recommend that people buy (_or **borrow**_) the book: <br />
+![phoenix](https://cloud.githubusercontent.com/assets/194400/22609006/33e03f96-ea57-11e6-97b3-f0606998400d.png) <br />
+see: https://pragprog.com/book/phoenix/programming-phoenix <br />
+it's written by @chrismccord who _created_ Phoenix.  <br />
+(_i.e: it's the obvious choice for how to learn Phoenix!_)
+
+
+
+## Resources
+
++ Elixir vs Ruby Showdown - Phoenix vs Rails: https://littlelines.com/blog/2014/07/08/elixir-vs-ruby-showdown-phoenix-vs-rails
++ Benchmark: https://github.com/mroth/phoenix-showdown
 
 ### Video Intro by José Valim (_Creator of Elixir_)
 
@@ -55,26 +86,6 @@ https://youtu.be/MD3P7Qan3pw
 
 [![ElixirConf 2016 - Keynote by José Valim](https://cloud.githubusercontent.com/assets/194400/22608199/743b69d4-ea53-11e6-8153-e6655fc64453.png)](https://youtu.be/srtMWzyqdp8 "Click to watch!") <br />
 https://youtu.be/srtMWzyqdp8
-
-
-## _How_?
-
-_Familiarize_ yourself with: http://www.phoenixframework.org/docs/up-and-running
-
- > TODO: add a _basic but practical_ tutorial here ... `help wanted`
-
-Meanwhile, we recommend that people buy (_or **borrow**_) the book:
-![phoenix](https://cloud.githubusercontent.com/assets/194400/22609006/33e03f96-ea57-11e6-97b3-f0606998400d.png)
-
-https://pragprog.com/book/phoenix/programming-phoenix
-it's written by @chrismccord who _created_ Phoenix.  <br />
-(_i.e: it's the obvious choice for how to learn Phoenix!_)
-
-
-## Resources
-
-+ Elixir vs Ruby Showdown - Phoenix vs Rails: https://littlelines.com/blog/2014/07/08/elixir-vs-ruby-showdown-phoenix-vs-rails
-+ Benchmark: https://github.com/mroth/phoenix-showdown
 
 <br /><br /><br />
 
@@ -134,7 +145,7 @@ for ***Elixir*** _also apply_ to ***Phoenix***! <br />
 check them out: https://github.com/dwyl/learn-elixir#why
 
 Can _you_ think of _another_ reason why using Phoenix is great?!
-Share your thoughts in an issue: 
+Share your thoughts in an issue:
 
 <br /><br /><br />
 
@@ -280,3 +291,5 @@ is **easier** to test and maintain_.
 If you have _evidence_ that "_Scala is Simpler_"
 we would _love_ to hear from you! <br />
 Tell us: https://github.com/dwyl/learn-phoenix-web-development/issues
+
+#### _Please_ ask more questions: https://github.com/dwyl/learn-phoenix-framework/issues
