@@ -79,6 +79,12 @@ equivalent Node.js (_Express.js_) App.
 + ***9x*** more throughput than a Python 2.7 based app. (_blocking really sucks!_)
 + ***10x - 100x*** more requests handled than Ruby-on-Rails
 (_depending on the type of app!_)
++ _Similar_ performance to **Go** on a _single server_,
+but a _much_ simpler multi-server concurrency model,
+so ***horizontal scaling*** across multiple data centers
+("availability zones") is _much easier_! (_Erlang manages the resources
+  for multiple servers/processors as a single app "fleet"
+  and delegates requests/processing to them across clusters/zones_!)
 
 All of this means that you spend _considerably_ less money
 on Hardware/Cloud infrastructure so your app/company
@@ -89,7 +95,6 @@ can gain a ***competitive advantage*** on **cost**.
 something _way better_ for your _next_ project,
 look no further than Phoenix! <br />
 > Read more: http://www.phoenixframework.org
-
 
 ## _How_?
 
@@ -111,6 +116,19 @@ see: https://pragprog.com/book/phoenix/programming-phoenix <br />
 it's written by @chrismccord who _created_ Phoenix.  <br />
 (_i.e: it's the obvious choice for how to learn Phoenix!_)
 
+<br /> <br /> <br />
+
+## _Who_?
+
+_Many_ people/teams/companies are _already_
+using Erlang/Elixir and Phoenix and seeing phenomenal results! <br />
+Including: Pinterest, Groupon (Fave), Lonely Planet, Brightcove ...
+See: https://github.com/doomspork/elixir-companies
+
+### Who _Should_ Learn Phoenix?
+
+> `help wanted` augmenting this section ...
+discuss: https://github.com/dwyl/learn-phoenix-framework/issues/14
 
 
 ## Resources
