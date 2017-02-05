@@ -43,17 +43,19 @@ A web application framework ***without compromise***! <br />
 
 ### Metaphor
 
-You can spend years (_and **mountains** of **money**_)
+You can spend ages (_and **mountains** of **money**_)
 "***performance tuning***" an
 ["_old banger_"](https://en.wikipedia.org/wiki/Decrepit_car)
-attempting to make it go _faster_ ...
+_trying_ to make it **go _faster_**<sup>1</sup> ...
 ![car-mod-fail](https://cloud.githubusercontent.com/assets/194400/22628288/41afc3d0-ebc9-11e6-98f3-67a1bc3a1411.png "Click image to enlarge for full glory!")
-<sup> See more car mod fails at: http://www.ridelust.com/30-custom-cars-from-around-the-world
-and/or http://www.bobatoo.co.uk/blog/the-10-worst-car-modifications-ever/</sup>
 
-***Or***... just _get_ the **best** car that was built for speed, safety and environmental friendliness and stop wasting your time on the past!
+***Or***... _get_ the [**_best_ car**](http://www.cnbc.com/2015/08/27/teslas-p85d-is-the-best-car-consumer-reports-has-ever-tested.html) built for speed, safety and environmental friendliness and ***stop wasting time*** on the past!
 
 ![model-s-photo](https://cloud.githubusercontent.com/assets/194400/22628333/e8a107ee-ebc9-11e6-9140-6be11cdddd87.jpg "Tesla Model S") <br />
+<small>**Note**: in the case of Phoenix,
+you're getting a Tesla Model S P100D for the "price" of a Ford Fiesta!
+Why/how would say "_no_" to that...?
+</small>
 
 Just like there is an _entire industry_ involved in "_tuning_" distinctly
 "_average_" cars (_that weren't made for high performance!_)
@@ -62,6 +64,11 @@ Organizations end up spending _way_ more time and money
 (_"engineering" consultants and server resources_!)
 trying to make their "_old tech_" scale or serve more (_concurrent users_),
 than they would simply making smarter tech choices.
+
+<sup>1: car mod fails:
+[ridelust.com/30-custom-cars-from-around-the-world](http://www.ridelust.com/30-custom-cars-from-around-the-world)
+and [bobatoo.co.uk/blog/the-10-worst-car-modifications-ever](http://www.bobatoo.co.uk/blog/the-10-worst-car-modifications-ever)
+</sup>
 
 ### (Should I _Care_ About) Benchmarks?
 
@@ -178,8 +185,8 @@ with the **concurrency** and **fault-tolerance** of **Erlang**_."
 0. Beyond all the (_fantastic_) technical benefits,
 what attracts _us_ to Phoenix is the ***Great Community***
 of people around the world who are _excited_ about making Phoenix
-an _amazing_ tool for building web apps! Having _welcomming_ people
-who will
+an _amazing_ tool for building web apps! <br />
+Having [_welcomming_ people](https://github.com/phoenixframework/phoenix/issues/1624) who will
   + help you when you get stuck, patiently explaining things
   + answer questions (_both "**noob**" and "**advanced**"_) and
   + openly discuss your ideas for improvements. <br />
