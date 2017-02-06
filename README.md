@@ -20,7 +20,7 @@ There are _many_ frameworks to choose from
 (_a **few** "popular" ones are mentioned **below**
 in the "**Questions**" section_). <br />
 But if we go by what is "_popular_" we would
-still be riding horses (_and carts_) to work
+still be riding horses (_and carts_) everywhere
 and no _progress_ would be made. <br />
 
 Phoenix is like having a
@@ -52,9 +52,9 @@ _trying_ to make it **go _faster_**<sup>1</sup> ...
 ***Or***... _get_ the [**_best_ car**](http://www.cnbc.com/2015/08/27/teslas-p85d-is-the-best-car-consumer-reports-has-ever-tested.html) built for speed, safety and environmental friendliness and ***stop wasting time*** on the past!
 
 ![model-s-photo](https://cloud.githubusercontent.com/assets/194400/22628333/e8a107ee-ebc9-11e6-9140-6be11cdddd87.jpg "Tesla Model S") <br />
-<small>**Note**: in the case of Phoenix,
+<small>_**Note**: in the case of Phoenix,
 you're getting a Tesla Model S P100D for the "price" of a Ford Fiesta!
-Why/how would say "_no_" to that...?
+A **logical** choice, **right**_?
 </small>
 
 Just like there is an _entire industry_ involved in "_tuning_" distinctly
