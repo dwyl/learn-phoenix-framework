@@ -31,8 +31,8 @@ Depending on the need of your application to connect to a database and that Post
 of **Ecto**, we can add a Postgres database by just [installing the addon](https://elements.heroku.com/addons/postgres)
 and connect it to your app. The only thing you need to do is to click the [Install Postgres](https://elements.heroku.com/addons/postgres) button.
 
-Note that this installation will add the `DATABASE_CONNECTION` environment variable in your application settings.
-We wills see more of that later on.
+Note that this installation will add the `DATABASE_URL` environment variable in your application settings.
+We will see more of that later on.
 
 ### 5. Make your Phoenix project Heroku-ready!
 Now that the project has been set up in Heroku we still need to modify a few files in our Phoenix project
