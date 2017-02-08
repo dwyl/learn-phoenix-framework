@@ -130,6 +130,10 @@ assets like JavaScript and CSS files. <br />
 Simply ensure you have Node.js _installed_. <br />
 You don't need to _know_ how to use Node to use Phoenix.
 
+> if you're curious _why_ they chose Brunch.io over "_alternatives_", <br />
+the short answer is: Simplicity & Speed!
+see: http://brunch.io/docs/why-brunch
+
 
 
 ### "Hello World" Example (_5 Mins_)
@@ -210,9 +214,10 @@ like request authentication, logging and processing into "_piplines_"
 that are easily ***human-readable***! (_no third-party `async` module required! no "promises", "generators" or "observables" to managed!!_)
 
 4. ***Security & Resilience Mindset*** is the `default`.
-**Encryption** (SSL) is ***easy*** in Pheonix/Elixir and
-both ***mitigation*** of **SQL injection**
-and ***CSRF protection*** are **built-in** so
+**Encryption** (SSL) is ***easy*** in Phoenix/Elixir and
+both ***mitigation*** of **SQL injection**,
+***Cross-site Scripting*** (**XSS**)
+and ***CSRF protection*** are **built-in** (_enabled by `default`_) so
 it's virtually impossible for a "_novice_" programmer
 to introduce this type of security bug.
 
@@ -316,7 +321,7 @@ If you can have a [***Tesla***](http://www.cnbc.com/2015/08/27/teslas-p85d-is-th
 why _wouldn't_ you?!? <br />
 Why _settle_ for _good_ when you can _easily_ have/use the ***best***?
 
-#### But GitHub Still Uses Rails ... Surely GitHub is "_Scalable_"?
+### But GitHub Still Uses Rails ... Surely GitHub is "_Scalable_"?
 
 ***Yes***, GitHub is still using Rails for their Web App/Site. <br />
 But ask _any_ of the _core_ team at GitHub if (_given the chance to start over_)
@@ -335,12 +340,36 @@ see: https://github.com/github
 
 ### Why _NOT_ Use Go?
 
-Read:
-https://www.reddit.com/r/elixir/comments/3c8yfz/how_does_go_compare_to_elixir
+> "_There are two kinds of programming languages - those that nobody uses and those that everybody's bitching about_" ~ Bjarne Stroustrup
+(_creator of_ [`C++`](https://www.youtube.com/watch?v=JBjjnqG0BP8))
+
+Go is _very_ popular. Largely due to the fact that Google "_sponsors_" it. <br />
+It was meant to simplify (_replace_) `C++` and Java inside Google ... <br />
+and for the most part, it has succeeded!
+
+We _really_ like Go. It was our "number two" choice when deciding
+what programming language <br />
+(_after Elixir_) in our "post JS stack"...
+The ***decision*** to _use_ `elixir` instead of _anything_ `else` was ***easy***:
++ Elixir is functional (_much simpler to read/write/maintain/extend_)
++ Elixir functions compose in a really elegant way as "plugs"/"***pipelines***"
++ Data is immutable which makes
++ Types are dynamic and inferred but there are rules which simplify things.
++ Erlang makes distributed apps ***much easier*** and our _plan_ is to build
+IoT systems that will mean connecting _many_ (*millions*) devices
+with persistent connections, Erlang was ***made for this***!
++ Phoenix includes _many_ useful things out-of-the box which
+
+Further Reading:
++ Why Go is Not Good: http://yager.io/programming/go.html
++ Go Web Frameworks: https://medium.com/code-zen/why-i-don-t-use-go-web-frameworks-1087e1facfa4
++ Why Everyone Hates Go: https://npf.io/2014/10/why-everyone-hates-go/
+(_click-bait title, some valid points..._)
++ Discussion: https://www.reddit.com/r/elixir/comments/3c8yfz/how_does_go_compare_to_elixir
 <br />
 (`help wanted` expanding this answer...)
 
-### Why _NOT_ Use Scala and `Play` Framework _instead_...?
+### Why _NOT_ Use Scala + `Play` Framework _instead_...?
 
 If you are already used to writing Java or deploying to the JVM,
 the Play Framework is a _superb_ choice: https://www.playframework.com <br />
@@ -377,5 +406,10 @@ is **easier** to test and maintain_.
 If you have _evidence_ that "_Scala is Simpler_"
 we would _love_ to hear from you! <br />
 Tell us: https://github.com/dwyl/learn-phoenix-web-development/issues
+
+### Why not use Haskell?
+
+If you like ***Functional Programming*** (**FP**) so much, why not use Haskell?
+
 
 #### _Please_ ask more questions: https://github.com/dwyl/learn-phoenix-framework/issues
