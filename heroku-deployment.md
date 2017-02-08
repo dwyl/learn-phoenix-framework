@@ -120,9 +120,9 @@ config :playwith_phoenix, PlaywithPhoenix.Endpoint,
   render_errors: [view: PlaywithPhoenix.ErrorView, accepts: ~w(html json)],
   pubsub: [name: PlaywithPhoenix.PubSub,
            adapter: Phoenix.PubSub.PG2]
- ```
+```
 
- ### Add the environment variables.
+### 6. Add the environment variables.
  So the last thing that we need to do is add our `SECRET_KEY_BASE` enviroment variable and our database `POOL_SIZE`.<br/>
  Go to your Heroku application dashboard and go to _settings_.
 
