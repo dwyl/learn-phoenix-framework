@@ -9,13 +9,13 @@ This documentation will guide you through how to setup a Phoenix application on 
 
 ## Setup through the Heroku dashboard.
 ### 1. Create a new application in the Heroku dashboard.
-![new application](img/heroku-deployment/create_new.png)
+![new application](https://cloud.githubusercontent.com/assets/7126237/22741835/df7864c6-ee14-11e6-8b88-2991b558c4eb.png)
 
 ### 2. After the application has been created go to the _settings_ page and add following build packs:
   * `https://github.com/HashNuke/heroku-buildpack-elixir.git`
   * `https://github.com/gjaldon/heroku-buildpack-phoenix-static.git`
 
-![add buildpacks](img/heroku-deployment/add_buildpack.png)
+![add buildpacks](https://cloud.githubusercontent.com/assets/7126237/22741836/df7b166c-ee14-11e6-8099-42d48dac01eb.png)
 
 ### 3. Connect your **git** repository to the Heroku application.
 Click the _Deploy_ link in your app navigation and select **Github** as your deployment method.<br/>
@@ -23,7 +23,7 @@ You will have to authorize Heroku to access your git repositories.
 You will be able to select the repository you want to connect and if you want to have an automatic build 
 when changes are pushed to master.
 
-![connect github](img/heroku-deployment/connect_github.png)
+![connect github](https://cloud.githubusercontent.com/assets/7126237/22741833/df76049c-ee14-11e6-9839-3a7190ed3122.png)
 
 ### 4. Add a Postgres database to your Heroku application.
 
@@ -128,12 +128,11 @@ config :playwith_phoenix, PlaywithPhoenix.Endpoint,
 
  There you can _reveal_ your config vars and add them.
 
-![env vars](img/heroku-deployment/env_vars.png)
+![env vars](https://cloud.githubusercontent.com/assets/7126237/22741834/df7850c6-ee14-11e6-9ae1-b344adcebecf.png)
 
 Note that the `DATABASE_URL` has been set by the postgres installation!
 
- ### FINISH: Merge to master!!
+### FINISH: Merge to master!!
  When you merge a PR or push to _master_ Heroku will build and deploy your phoenix app.       
 
-![phoenix app](img/heroku-deployment/phoenix_app.png)
-
+![phoenix app](https://cloud.githubusercontent.com/assets/7126237/22741837/df82d7c6-ee14-11e6-9a3f-2d16c28e729b.png)
