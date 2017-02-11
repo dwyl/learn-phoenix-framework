@@ -4,6 +4,7 @@
     <tr>
       <td><%= render "user.html", user: user %></td>
       <td><%= link "View", to: user_path(@conn, :show, user.id) %></td>
+      <td><%= user.inserted_at %></td>
     </tr>
   <% end %>
 </table>
