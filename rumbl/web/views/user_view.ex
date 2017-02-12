@@ -3,7 +3,6 @@ defmodule Rumbl.UserView do
   alias Rumbl.User
 
   def first_name(%User{name: name}) do
-    # IO.puts "name" <> name
     name
     |> String.split(" ")
     |> Enum.at(0)
