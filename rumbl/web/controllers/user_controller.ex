@@ -9,7 +9,7 @@ defmodule Rumbl.UserController do
   end
 
   def show(conn, %{"id" => id}) do
-    user = Repo.get(Rumbl.User, id)
+    user = Repo.get(User, id)
     render conn, "show.html", user: user
   end
 
@@ -19,7 +19,8 @@ defmodule Rumbl.UserController do
   end
 
   def create(conn, %{"user" => user_params}) do
-    changeset = User.changeset(%User{}, user_params)
+    IO.inspect user_params
+    changeset = User.registration_changeset(%User{}, user_params)
     case Repo.insert(changeset) do
       {:ok, user} ->
         conn

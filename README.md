@@ -353,12 +353,15 @@ what programming language <br />
 The ***decision*** to _use_ `elixir` instead of _anything_ `else` was ***easy***:
 + Elixir is functional (_much simpler to read/write/maintain/extend_)
 + Elixir functions compose in a really elegant way as "plugs"/"***pipelines***"
-+ Data is immutable which makes
-+ Types are dynamic and inferred but there are rules which simplify things.
++ Data is immutable which makes application state predictable (_no guessing_!)
++ Types are dynamic and inferred (_no need to manually declare them_)
+but there are rules which simplify things and the compiler checks them
+giving an appropriate warning.
 + Erlang makes distributed apps ***much easier*** and our _plan_ is to build
 IoT systems that will mean connecting _many_ (*millions*) devices
 with persistent connections, Erlang was ***made for this***!
-+ Phoenix includes _many_ useful things out-of-the box which
++ Phoenix includes _many_ useful things out-of-the box including _several_
+security features most people won't even think of.
 
 Further Reading:
 + Why Go is Not Good: http://yager.io/programming/go.html
