@@ -68,7 +68,8 @@ All commands from start to finish
 + `mix local.hex`
 + `mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez`
 + `mix phoenix.new hello_phoenix`
-+ Type yes when prompted to install dependencies
++ Type `y` when prompted to install dependencies
++ `cd hello_phoenix`
 + `mix ecto.create`
 + `mix phoenix.server`
 
