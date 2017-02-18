@@ -62,7 +62,7 @@ defmodule Rumbl.VideoController do
   end
 
   def delete(conn, %{"id" => id}, user) do
-    video = Repo.get!(user_videos(video), id)
+    video = Repo.get!(user_videos(user), id)
 
     # Here we use delete! (with a bang) because we expect
     # it to always work (and if it does not, it will raise).
