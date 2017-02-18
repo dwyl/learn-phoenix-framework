@@ -3,7 +3,7 @@ defmodule Rumbl.VideoTest do
 
   alias Rumbl.Video
 
-  @valid_attrs %{descrcription: "some content", title: "some content", url: "some content"}
+  @valid_attrs %{description: "some content", title: "some content", url: "some content"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do

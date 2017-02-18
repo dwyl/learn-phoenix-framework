@@ -3,21 +3,22 @@
 <table class="table">
   <thead>
     <tr>
-      <th>User</th>
+      <th>ID</th>
       <th>Url</th>
       <th>Title</th>
-      <th>Descrcription</th>
-
+      <th>description</th>
+      <th>Categories</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
 <%= for video <- @videos do %>
     <tr>
-      <td><%= video.user_id %></td>
+      <td><%= video.id %></td>
       <td><%= video.url %></td>
       <td><%= video.title %></td>
-      <td><%= video.descrcription %></td>
+      <td><%= video.description %></td>
+      <td><%= video.category_id%></td>
 
       <td class="text-right">
         <%= link "Show", to: video_path(@conn, :show, video), class: "btn btn-default btn-xs" %>
