@@ -13,6 +13,7 @@ defmodule Rumbl.Video do
 
   @required_fields ~w(url title description)
   @optional_fields ~w(category_id)
+  @all_fields ~w(url title description category_id)
 
   @doc """
   Builds a changeset based on the `struct` and `params`.
@@ -20,6 +21,8 @@ defmodule Rumbl.Video do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, @required_fields, @optional_fields)
+    # |> cast(params, @all_fields) # see: https://github.com/dwyl/learn-phoenix-framework/issues/35
+    # |> validate_required(params, @required_fields)
     |> assoc_constraint(:category)
   end
 end
