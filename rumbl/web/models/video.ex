@@ -22,7 +22,7 @@ defmodule Rumbl.Video do
     struct
     |> cast(params, @required_fields, @optional_fields)
     # |> cast(params, @all_fields) # see: https://github.com/dwyl/learn-phoenix-framework/issues/35
-    # |> validate_required(params, @required_fields)
+    # |> validate_required(@required_fields)
     |> assoc_constraint(:category)
   end
 end
