@@ -35,7 +35,8 @@ defmodule Rumbl.VideoControllerTest do
   @tag login_as: "max"
   test "lists all user's video on index", %{conn: conn, user: user} do
     user_video = insert_video(user, title: "funny cats")
-    other_video = insert_video(insert_user(username: "other"), title: "another video")
+    other_video = insert_video(insert_user(username: "other"),
+      title: "another video")
 
     conn = get conn, video_path(conn, :index)
     assert html_response(conn, 200) =~ ~r/Listing videos/
@@ -64,8 +65,27 @@ defmodule Rumbl.VideoControllerTest do
     assert video_count(Video) == count_before
   end
 
-  # @tag login_as: "max"
-  # test "authorizes actions against access by other users"
-  #
+  @tag login_as: "max"
+  test "authorizes actions against access by other users",
+    %{user: owner, conn: conn} do
+
+    video = insert_video(owner, @valid_attrs)
+    non_owner = insert_user(username: "sneaky") # https://youtu.be/_YQpbzQ6gzs?t=2m48s
+    conn = assign(conn, :current_user, non_owner)
+
+    assert_error_sent :not_found, fn ->
+      get(conn, video_path(conn, :show, video))
+    end
+    assert_error_sent :not_found, fn ->
+      get(conn, video_path(conn, :edit, video))
+    end
+    assert_error_sent :not_found, fn ->
+      put(conn, video_path(conn, :update, video, video: @valid_attrs))
+    end
+    assert_error_sent :not_found, fn ->
+      delete(conn, video_path(conn, :delete, video))
+    end
+  end
+
 
 end
