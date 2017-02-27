@@ -86,6 +86,4 @@ defmodule Rumbl.VideoControllerTest do
       delete(conn, video_path(conn, :delete, video))
     end
   end
-
-
 end
