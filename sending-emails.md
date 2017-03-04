@@ -6,7 +6,35 @@ We are going to build an application which sends an email using Amazon SES
 using the SMTP interface described [here](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-email.html).
 If you are looking to integrate emailing in your application, I would advise against immediately trying to integrate this in before having already created a throwaway application.
 
+## Tools We are going to use
+
+### Bamboo
+
+<img src="https://avatars1.githubusercontent.com/u/6183?v=3&s=200" align="right" height="150px" />
+
+Bamboo is an emailing library for Elixir built by [thoughtbot](https://thoughtbot.com/)
+
+We will use the [SMTP adapter](https://github.com/fewlinesco/bamboo_smtp)
+
+We are also going to use [mock](https://github.com/jjh42/mock) for stubbing our functions when testing
+
+<br>
+
+----
+
+### Amazon SES
+
+<img src="https://pbs.twimg.com/profile_images/646830789787697153/NKoHyhZZ.png" align="right" height="150px" />
+
+SES is an email service provided by Amazon
+
+SES is reliable, affordable and has great documentation
+
+<br><br><br>
+
 ## How we are going to do it
+
+We will divide the setup into two sections, the SES setup and the Phoenix Application setup
 
 #### Amazon SES Setup
 
@@ -14,9 +42,11 @@ First you will need to sign in to your amazon account [here](https://console.aws
 
 Once you are signed in you should see a nav bar on the left of the screen and click on SMTP settings
 
+<img src="images/smtp_settings.png" />
+
 On this page make a note of your "Server Name" and "Port"
 
-Then click "Create My SMTP Credentials"
+Then click <img src="images/create_my_smtp_credentials.png" />
 
 Then on the bottom right of the screen click "Create"
 
@@ -28,7 +58,9 @@ Next we need to authorise an email address for testing, return back to the [Ses 
 
 Click on "Email Addresses" under "Identity Management" on the nav bar on the left
 
-Click "Verify a New Email Address" and type in a real email address which you will use for testing your application
+<img src="images/email_addresses.png" />
+
+Click <img src="images/verify_a_new_email_address.png" /> and type in a real email address which you will use for testing your application
 
 Now go check your emails and click the validation link
 
