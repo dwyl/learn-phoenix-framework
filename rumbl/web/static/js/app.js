@@ -23,8 +23,7 @@ import Player from "./player"
 let video = document.getElementById("video")
 
 if (video) {
-  console.log("video.id:", video.id)
   Player.init(video.id, video.getAttribute("data-player-id"), () => {
-    console.log("player ready!")
+    console.log("player ready! id:", video.getAttribute("data-player-id"))
   })
 }

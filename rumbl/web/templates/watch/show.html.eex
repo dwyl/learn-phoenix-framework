@@ -17,7 +17,7 @@
         <textarea id="msg-input" rows="3" class="form-control"
           placeholder="Comment..."></textarea>
         <button id="msg-submit" class="btn btn-primary form-control"
-          type="submit"></button>
+          type="submit">Post Comment</button>
       </div>
     </div>
   </div>
