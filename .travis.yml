@@ -1,7 +1,9 @@
 language: elixir
 elixir:
 - 1.3.4
-before_script: cd rumbl
+before_install:
+  pwd
+  cd rumbl
 cache:
   directories:
     - _build
