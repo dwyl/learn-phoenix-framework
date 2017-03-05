@@ -52,18 +52,19 @@ _trying_ to make it **go _faster_**<sup>1</sup> ...
 ***Or***... _get_ the [**_best_ car**](http://www.cnbc.com/2015/08/27/teslas-p85d-is-the-best-car-consumer-reports-has-ever-tested.html) built for speed, safety and environmental friendliness and ***stop wasting time*** on the past!
 
 ![model-s-photo](https://cloud.githubusercontent.com/assets/194400/22628333/e8a107ee-ebc9-11e6-9140-6be11cdddd87.jpg "Tesla Model S") <br />
-<small>_**Note**: in the case of Phoenix,
-you're getting a Tesla Model S P100D for the "price" of a Ford Fiesta!
+<small>_**Note**: with Phoenix,
+you're getting a [Tesla Model S P100D](https://www.tesla.com/en_GB/blog/new-tesla-model-s-now-quickest-production-car-world) for the "price" of a Ford Fiesta!
 A **logical** choice, **right**_?
 </small>
 
 Just like there is an _entire industry_ involved in "_tuning_" distinctly
 "_average_" cars (_that weren't made for high performance!_)
-there's a similar one for "_optimsing_" slow web applications.
+there's a similar one for "_optimizing_" slow web applications.
 Organizations end up spending _way_ more time and money
 (_"engineering" consultants and server resources_!)
-trying to make their "_old tech_" scale or serve more (_concurrent users_),
-than they would simply making smarter tech choices.
+trying to make their "_old tech_" scale or serve more (_concurrent_) users,
+than they would simply making smarter tech choices
+(_and avoiding ["sunk cost bias"](http://www.lifehack.org/articles/communication/how-the-sunk-cost-fallacy-makes-you-act-stupid.html)_).
 
 <sup>1: car mod fails:
 [ridelust.com/30-custom-cars-from-around-the-world](http://www.ridelust.com/30-custom-cars-from-around-the-world)
