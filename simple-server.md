@@ -44,6 +44,7 @@ Say yes to this and all the dependencies needed will be installed. When it is fi
 
 `mix ecto.create`
 
+(If you get errors this might help: [#53](https://github.com/dwyl/learn-phoenix-framework/issues/53)).
 
 And that is that. If all has gone well you have just created your phoenix application.
 
@@ -54,6 +55,8 @@ Now it's time to have a look at all your new files and folders and to actually s
 First things first, you will want to start your server with
 
 `mix phoenix.server`
+
+(If you get errors this might help: [#53](https://github.com/dwyl/learn-phoenix-framework/issues/53)).
 
 By default Phoenix accepts requests on port 4000 so you will get a message in your terminal that looks something like this...
 
@@ -70,8 +73,8 @@ All commands from start to finish
 + `mix phoenix.new hello_phoenix`
 + Type `y` when prompted to install dependencies
 + `cd hello_phoenix`
-+ `mix ecto.create`
-+ `mix phoenix.server`
++ `mix ecto.create` (If you get errors this might help: [#53](https://github.com/dwyl/learn-phoenix-framework/issues/53))
++ `mix phoenix.server`(If you get errors this might help: [#53](https://github.com/dwyl/learn-phoenix-framework/issues/53))
 
 ## Learn more
 
