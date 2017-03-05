@@ -76,7 +76,7 @@ defmodule Rumb.AuthTest do
   end
 
   test "login with password missmatch", %{conn: conn} do
-    _ = insert_user(username: "me", password: "secrete")
+    _ = insert_user(username: "me", password: "secret")
     assert {:error, :unauthorized, _conn} =
       Auth.login_by_username_and_pass(conn, "me", "wrong", repo: Repo)
   end
