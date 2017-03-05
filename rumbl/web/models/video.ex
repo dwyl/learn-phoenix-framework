@@ -7,7 +7,7 @@ defmodule Rumbl.Video do
     field :description, :string
     belongs_to :user, Rumbl.User
     belongs_to :category, Rumbl.Category
-
+    field :slug, :string
     timestamps() # invocation parenthesis not in book
   end
 
