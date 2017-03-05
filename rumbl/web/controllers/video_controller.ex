@@ -40,7 +40,6 @@ defmodule Rumbl.VideoController do
     user
       |> build_assoc(:videos)
       |> Video.changeset(video_params)
-    IO.inspect changeset
 
     case Repo.insert(changeset) do
       {:ok, _video} ->
