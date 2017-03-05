@@ -2,6 +2,22 @@ defmodule Rumbl.VideoController do
   use Rumbl.Web, :controller
 
   alias Rumbl.Video
+  alias Rumbl.Category
+  plug :load_categories when action in [:new, :create, :edit, :update]
+
+  defp load_categories(conn, _) do
+    query =
+      Category
+      |> Category.alphabetical
+      |> Category.names_and_ids
+    categories = Repo.all query
+    assign(conn, :categories, categories)
+  end
+
+  def action(conn, _) do
+    apply(__MODULE__, action_name(conn),
+      [conn, conn.params, conn.assigns.current_user])
+  end
 
   def index(conn, _params, user) do
     videos = Repo.all(user_videos(user))
@@ -74,22 +90,5 @@ defmodule Rumbl.VideoController do
     conn
     |> put_flash(:info, "Video deleted successfully.")
     |> redirect(to: video_path(conn, :index))
-  end
-
-  def action(conn, _) do
-    apply(__MODULE__, action_name(conn),
-      [conn, conn.params, conn.assigns.current_user])
-  end
-
-  alias Rumbl.Category
-  plug :load_categories when action in [:new, :create, :edit, :update]
-
-  defp load_categories(conn, _) do
-    query =
-      Category
-      |> Category.alphabetical
-      |> Category.names_and_ids
-    categories = Repo.all query
-    assign(conn, :categories, categories)
   end
 end
