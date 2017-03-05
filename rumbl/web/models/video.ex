@@ -11,18 +11,13 @@ defmodule Rumbl.Video do
     timestamps() # invocation parenthesis not in book
   end
 
-  @required_fields ~w(url title description)
-  @optional_fields ~w(category_id)
-  @all_fields ~w(url title description category_id)
-
   @doc """
   Builds a changeset based on the `struct` and `params`.
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, @required_fields, @optional_fields)
-    # |> cast(params, @all_fields) # see: https://github.com/dwyl/learn-phoenix-framework/issues/35
-    # |> validate_required(@required_fields)
+    |> cast(params, [:url, :title, :description, :category_id])
+    |> validate_required([:url, :title])
     |> slugify_title()
     |> assoc_constraint(:category)
   end
@@ -42,8 +37,8 @@ defmodule Rumbl.Video do
   end
 end
 
-defimpl Phoenix.Param, for: Rumbl.Video do
-  def to_param(%{slug: slug, id: id}) do
-    "#{id}-#{slug}"
-  end
-end
+# defimpl Phoenix.Param, for: Rumbl.Video do
+#   def to_param(%{slug: slug, id: id}) do
+#     "#{id}-#{slug}"
+#   end
+# end
