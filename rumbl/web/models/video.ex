@@ -42,8 +42,8 @@ defmodule Rumbl.Video do
   end
 end
 
-defimpl Phoenix.Param, for: Rumbl.Video do
-  def to_param(%{slug: slug, id: id}) do
-    "#{id}-#{slug}"
-  end
-end
+# defimpl Phoenix.Param, for: Rumbl.Video do
+#   def to_param(%{slug: slug, id: id}) do
+#     "#{id}-#{slug}"
+#   end
+# end

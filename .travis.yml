@@ -1,0 +1,8 @@
+language: elixir
+elixir:
+- 1.3.4
+before_script: cd rumbl
+cache:
+  directories:
+    - _build
+    - deps
