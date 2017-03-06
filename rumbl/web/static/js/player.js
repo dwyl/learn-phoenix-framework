@@ -1,6 +1,7 @@
-let Player = {
-  player: null,
-
+let Player = {  // JS works for small scripts like this
+  player: null, // but for anything bigger we prefer Elm
+                // and so do the creators of Phoenix!
+                // see: https://github.com/dwyl/learn-elm
   init(domId, playerId, onReady) {
     window.onYouTubeIframeAPIReady = () => {
       this.onIFrameReady(domId, playerId, onReady)
