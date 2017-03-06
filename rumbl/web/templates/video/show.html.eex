@@ -3,8 +3,8 @@
 <ul>
 
   <li>
-    <strong>User:</strong>
-    <%= @video.user_id %>
+    <strong>Video Id</strong>
+    <%= @video.id %>
   </li>
 
   <li>
@@ -20,6 +20,11 @@
   <li>
     <strong>Description:</strong>
     <%= @video.description %>
+  </li>
+
+  <li>
+    <strong>Category</strong>
+    <%= @video.category_id %>
   </li>
 
 </ul>

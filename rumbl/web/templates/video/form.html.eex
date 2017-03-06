@@ -24,6 +24,12 @@
   </div>
 
   <div class="form-group">
+    <%= label f, :category_id, "Category", class: "control-label" %>
+    <%= select f, :category_id, @categories, class: "form-control",
+        prompt: "Choose a category" %>
+  </div>
+
+  <div class="form-group">
     <%= submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>

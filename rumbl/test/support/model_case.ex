@@ -20,7 +20,8 @@ defmodule Rumbl.ModelCase do
 
       import Ecto
       import Ecto.Changeset
-      import Ecto.Query
+      import Ecto.Query, only: [from: 1, from: 2]
+      import Rumbl.TestHelpers
       import Rumbl.ModelCase
     end
   end
@@ -30,9 +31,14 @@ defmodule Rumbl.ModelCase do
 
     unless tags[:async] do
       Ecto.Adapters.SQL.Sandbox.mode(Rumbl.Repo, {:shared, self()})
+      # Ecto.Adapters.SQL.restart_test_transaction(Rumbl.Repo, [])
     end
 
     :ok
+  end
+
+  def errors_on(model, data) do
+    model.__struct__.changeset(model, data).errors
   end
 
   @doc """

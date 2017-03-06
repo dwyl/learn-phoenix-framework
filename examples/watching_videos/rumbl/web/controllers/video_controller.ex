@@ -14,7 +14,6 @@ defmodule Rumbl.VideoController do
 
   plug :scrub_params, "video" when action in [:create, :update]
 
-
   plug :load_categories when action in [:new, :create, :edit, :update]
 
   defp load_categories(conn, _) do

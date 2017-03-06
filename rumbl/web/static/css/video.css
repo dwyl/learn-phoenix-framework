@@ -1,0 +1,5 @@
+#msg-container {
+  min-height: 180px; 
+  max-height: 180px;
+  overflow-y: scroll;
+}
