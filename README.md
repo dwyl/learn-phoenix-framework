@@ -181,7 +181,6 @@ https://youtu.be/srtMWzyqdp8
 
 <br /><br /><br />
 
-
 # _Our Top 10_ Reasons _Why_ Phoenix
 
 > "_**Phoenix** provides the **productivity** of Ruby-on-Rails <br />
@@ -193,8 +192,11 @@ of people around the world who are _excited_ about making Phoenix
 an _amazing_ tool for building web apps! <br />
 Having [_welcomming_ people](https://github.com/phoenixframework/phoenix/issues/1624) who will
   + help you when you get stuck, patiently explaining things
-  + answer questions (_both "**noob**" and "**advanced**"_) and
-  + openly discuss your ideas for improvements. <br />
+  + answer questions (_both
+    ["**noob**"](https://elixirforum.com/t/defimpl-phoenix-param-to-override-to-param-causes-functionclauseerror-no-function-clause-matching-in-phoenix-param-rumbl-video-to-param-1/3987)
+    and "**advanced**"_) and
+  + ***openly discuss*** (_your_) _**ideas** for **improvements**_.
+  see: https://elixirforum.com/t/phoenix-v1-3-0-rc-0-released/3947 <br />
  <br />
 1. Phoenix uses the **Elixir** programming language which means your
 app is compiled and run on the ***Erlang Virtual Machine*** "BEAM". <br />
