@@ -11,6 +11,5 @@ defmodule Rumbl.Repo.Migrations.CreateVideo do
       timestamps()
     end
     create index(:videos, [:user_id])
-
   end
 end
