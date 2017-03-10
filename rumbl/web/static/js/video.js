@@ -35,6 +35,14 @@ let Video = {
       this.scheduleMessages(msgContainer, resp.annotations)
     })
     .receive("error", reason => console.log("join failed", reason))
+
+    msgContainer.addEventListener("click", e => {
+      e.preventDefault()
+      let seconds = e.target.getAttribute("data-seek") ||
+                    e.target.parentNode.getAttribute("data-seek")
+      if(!seconds){ return }
+      Player.seekTo(seconds)
+    })
   },
 
   esc(str) {
