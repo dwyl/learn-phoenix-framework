@@ -42,11 +42,11 @@ First you will need to sign in to your amazon account [here](https://console.aws
 
 Once you are signed in you should see a nav bar on the left of the screen and click on SMTP settings
 
-<img src="images/smtp_settings.png" />
+<img src="https://cloud.githubusercontent.com/assets/15983736/23793390/d9b88248-0582-11e7-9e89-15d6c84f688c.png" />
 
 On this page make a note of your "Server Name" and "Port"
 
-Then click <img src="images/create_my_smtp_credentials.png" />
+Then click <img src="https://cloud.githubusercontent.com/assets/15983736/23793405/eb56697a-0582-11e7-8d27-27d07225250f.png" />
 
 Then on the bottom right of the screen click "Create"
 
@@ -58,9 +58,9 @@ Next we need to authorise an email address for testing, return back to the [Ses 
 
 Click on "Email Addresses" under "Identity Management" on the nav bar on the left
 
-<img src="images/email_addresses.png" />
+<img src="https://cloud.githubusercontent.com/assets/15983736/23793419/fd6c22a8-0582-11e7-9d79-42afd0521133.png" />
 
-Click <img src="images/verify_a_new_email_address.png" /> and type in a real email address which you will use for testing your application
+Click <img src="https://cloud.githubusercontent.com/assets/15983736/23793429/0c8d2188-0583-11e7-9c1e-8f4f41cee20b.png" /> and type in a real email address which you will use for testing your application
 
 Now go check your emails and click the validation link
 
