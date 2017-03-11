@@ -55,7 +55,7 @@ defmodule Rumbl.VideoChannel do
       info_changeset =
         Repo.get_by!(Rumbl.User, username: result.backend)
         |> build_assoc(:annotations, video_id: ann.video_id)
-        |> Rumbl.Annotation.changeset(attrs)
+        |> Rumbl.Annotations.changeset(attrs)
 
       case Repo.insert(info_changeset) do
         {:ok, info_ann} -> broadcast_annotation(socket, info_ann)
