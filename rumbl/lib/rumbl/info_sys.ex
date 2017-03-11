@@ -2,7 +2,7 @@ defmodule Rumbl.InfoSys do
   @backends [Rumbl.InfoSys.Wolfram]
 
   defmodule Result do
-    defstruct score: 0, text: nul, url: nil, backend: nil
+    defstruct score: 0, text: nil, url: nil, backend: nil
   end
 
   def start_link(backend, query, query_ref, owner, limit) do
