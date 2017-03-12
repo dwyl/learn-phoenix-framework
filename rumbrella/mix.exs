@@ -21,6 +21,10 @@ defmodule Rumbrella.Mixfile do
   # Dependencies listed here are available only for this project
   # and cannot be accessed from applications inside the apps folder
   defp deps do
-    []
+    [{:excoveralls, "~> 0.6", only: :test}]
+  end
+
+  defp aliases do
+    ["test": ["ecto.create --quiet", "ecto.migrate", "test"]]
   end
 end
