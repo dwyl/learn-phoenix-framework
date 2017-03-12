@@ -6,7 +6,7 @@
 # We make no guarantees that this code is fit for any purpose.
 # Visit http://www.pragmaticprogrammer.com/titles/phoenix for more book information.
 #---
-defmodule Rumbl.InfoSys.Supervisor do
+defmodule InfoSys.Supervisor do
   use Supervisor
 
   def start_link() do
@@ -15,7 +15,7 @@ defmodule Rumbl.InfoSys.Supervisor do
 
   def init(_opts) do
     children = [
-      worker(Rumbl.InfoSys, [], restart: :temporary)
+      worker(InfoSys, [], restart: :temporary)
     ]
 
     supervise children, strategy: :simple_one_for_one

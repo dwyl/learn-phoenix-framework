@@ -6,9 +6,9 @@
 # We make no guarantees that this code is fit for any purpose.
 # Visit http://www.pragmaticprogrammer.com/titles/phoenix for more book information.
 #---
-defmodule Rumbl.InfoSys.Wolfram do
+defmodule InfoSys.Wolfram do
   import SweetXml
-  alias Rumbl.InfoSys.Result
+  alias InfoSys.Result
 
   def start_link(query, query_ref, owner, limit) do 
     Task.start_link(__MODULE__, :fetch, [query, query_ref, owner, limit])
