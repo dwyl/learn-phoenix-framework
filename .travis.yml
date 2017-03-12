@@ -1,7 +1,7 @@
 language: elixir
 elixir:
 - 1.3.4
-before_install: cd /home/travis/build/dwyl/learn-phoenix-framework/rumbl && pwd
+before_install: cd /home/travis/build/dwyl/learn-phoenix-framework/rumbrella && pwd
 cache:
   directories:
     - _build
