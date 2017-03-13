@@ -12,6 +12,10 @@ defmodule InfoSysTest do
     def fetch("none", ref, owner, __limit) do
       send(owner, {:results, ref, []})
     end
+    def fetch("timeout", _ref, owner, _limit) do
+      send(owner, {:backend, self()})
+      :timer.sleep(:infinity) # p.242
+    end
   end
 
   test "compute/2 with backend results" do
@@ -21,5 +25,15 @@ defmodule InfoSysTest do
 
   test "compute/2 with no backend results" do
     assert [] = InfoSys.compute("none", backends: [TestBackend])
+  end
+
+  test "compute/2 with timeout returns no results and kills workers" do
+    results = InfoSys.compute("timeout", backends: [TestBackend], timeout: 10)
+    assert results == []
+    assert_receive {:backend, backend_pid}
+    ref = Process.monitor(backend_pid)
+    assert_receive {:DOWN, ^ref, :process, _pid, _reason}
+    refute_received {:DOWN, _, _, _, _}
+    refute_received :timedout
   end
 end
