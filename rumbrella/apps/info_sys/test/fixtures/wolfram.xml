@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<queryresult success='true'
+    error='false'
+    numpods='6'
+    datatypes='Math'
+    timedout=''
+    timedoutpods=''
+    timing='1.117'
+    parsetiming='0.107'
+    parsetimedout='false'
+    recalculate=''
+    id='MSPa10411f21255dhff0633800003f01b3a47dgbcc87'
+    host='http://www4c.wolframalpha.com'
+    server='14'
+    related='http://www4c.wolframalpha.com/api/v2/relatedQueries.jsp?id=MSPa10421f21255dhff06338000061478hidaidihh2c7834032356426083962'
+    version='2.6'>
+</queryresult>
