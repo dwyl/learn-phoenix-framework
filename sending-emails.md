@@ -4,9 +4,11 @@
 
 We are going to build an application which sends an email using Amazon SES
 using the SMTP interface described [here](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-email.html).
-If you are looking to integrate emailing in your application, I would advise against immediately trying to integrate this in before having already created a throwaway application.
+If you are looking to integrate emailing in your application, I would advise
+against immediately trying to integrate this in before having already created
+a throwaway application.
 
-## Tools We are going to use
+## Tools we are going to use
 
 ### Bamboo
 
@@ -16,7 +18,8 @@ Bamboo is an emailing library for Elixir built by [thoughtbot](https://thoughtbo
 
 We will use the [SMTP adapter](https://github.com/fewlinesco/bamboo_smtp)
 
-We are also going to use [mock](https://github.com/jjh42/mock) for stubbing our functions when testing
+We are also going to use [mock](https://github.com/jjh42/mock) for stubbing
+our functions when testing
 
 <br>
 
@@ -26,47 +29,53 @@ We are also going to use [mock](https://github.com/jjh42/mock) for stubbing our 
 
 <img src="https://pbs.twimg.com/profile_images/646830789787697153/NKoHyhZZ.png" align="right" height="150px" />
 
-SES is an email service provided by Amazon
+SES is an email service provided by Amazon.
 
-SES is reliable, affordable and has great documentation
+SES is reliable, affordable and has great documentation.
 
 <br><br><br>
 
 ## How we are going to do it
 
-We will divide the setup into two sections, the SES setup and the Phoenix Application setup
+We will divide the setup into two sections; the SES setup and the Phoenix Application setup.
 
-#### Amazon SES Setup
+### Amazon SES Setup
 
-First you will need to sign in to your amazon account [here](https://console.aws.amazon.com/ses/)
+First you will need to sign in to your amazon account [here](https://console.aws.amazon.com/ses/).
 
-Once you are signed in you should see a nav bar on the left of the screen and click on SMTP settings
+Once you are signed in you should see a nav bar on the left of the screen.
+Click on SMTP settings in the nav bar.
 
 <img src="https://cloud.githubusercontent.com/assets/15983736/23793390/d9b88248-0582-11e7-9e89-15d6c84f688c.png" />
 
-On this page make a note of your "Server Name" and "Port"
+From this page make a note of your `Server Name` and `Port`.
 
 Then click <img src="https://cloud.githubusercontent.com/assets/15983736/23793405/eb56697a-0582-11e7-8d27-27d07225250f.png" />
 
-Then on the bottom right of the screen click "Create"
+You may then choose a username, or go with the default name. On the
+bottom right of the screen click "Create".
 
-Then click "Show User SMTP Security Credentials"
+Click "Show User SMTP Security Credentials" and make a note of your "SMTP
+Username" and "SMTP Password"
 
-Make a note of your "SMTP Username" and "SMTP Password"
+Next we need to authorise an email address for testing. Return back to the
+[SES dashboard](https://console.aws.amazon.com/ses/).
 
-Next we need to authorise an email address for testing, return back to the [Ses dashboard](https://console.aws.amazon.com/ses/)
-
-Click on "Email Addresses" under "Identity Management" on the nav bar on the left
+Click on "Email Addresses" under "Identity Management" on the nav bar on the
+left.
 
 <img src="https://cloud.githubusercontent.com/assets/15983736/23793419/fd6c22a8-0582-11e7-9d79-42afd0521133.png" />
 
 Click <img src="https://cloud.githubusercontent.com/assets/15983736/23793429/0c8d2188-0583-11e7-9c1e-8f4f41cee20b.png" /> and type in a real email address which you will use for testing your application
 
-Now go check your emails and click the validation link
+Check your email and click the validation link. If this has not shown up
+immediately, double check you input your email correctly. It may take some
+time but it is usually immediate.
 
-Great you are now ready to start building the application.
+Great! You are now ready to start building the application.
 
-Before continuing you should now have made a note of the following:
+Before continuing, you should have made a note of the following:
+
 * Server Name
 * Port
 * SMTP Username
@@ -75,7 +84,7 @@ Before continuing you should now have made a note of the following:
 
 We now have everything we need from AWS and can start building the application.
 
-#### Phoenix Application
+### Phoenix Application
 
 ```bash
 $ mix phoenix.new ses_email_test --no-ecto
@@ -88,10 +97,11 @@ $ mix phoenix.server
 ```
 Then visiting `http://localhost:4000`
 
-We'll need to install some dependencies to so inside of `mix.exs`.
+We'll need to install some dependencies which we can do by adding to  `mix.exs`.
 Ensure to edit your `deps` and `application` functions as follows:
 
-`mix.exs` (Add in :bamboo, :bamboo_smtp and :mock)
+In your `mix.exs` `deps`,  add in `:bamboo`, `:bamboo_smtp` and `:mock`.
+
 ```elixir
 defp deps do
   [{:phoenix, "~> 1.2.1"},
@@ -102,8 +112,9 @@ defp deps do
 end
 ```
 
-`mix.exs` (Add in :bamboo)
-```elxir
+In `mix.exs` `application`, add in `:bamboo`
+
+```elixir
   def application do
     [mod: {SesEmailTest, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext, :bamboo]]
@@ -120,32 +131,34 @@ This will be where we reference the functions which `Bamboo` gives us.
 Create a `mailer.ex` file inside of `lib/ses_email_test`
 
 `lib/ses_email_test/mailer.ex`
+
 ```elixir
 defmodule SesEmailTest.Mailer do
   use Bamboo.Mailer, otp_app: :ses_email_test
 end
 ```
 
-Next we need an `Email` module which will where we will keep our own helpers for sending emails.
-Create a `email.ex` file inside of `lib`
+Next we need an `Email` module which will be where we will create our own helpers for sending
+emails. Create a `email.ex` file inside of `lib`
 
 `lib/email.ex`
+
 ```elixir
 defmodule SesEmailTest.Email do
   use Bamboo.Phoenix, view: SesEmailTest.EmailView
 
-  def send_test_email(to_email_address, from_email_address) do
+  def send_test_email(from_email_address, subject, message) do
     new_email()
-    |> to(to_email_address)
-    |> from(from_email_address)
-    |> subject("Welcome!")
-    |> text_body("Welcome")
+    |> to("yourvalidatedemail@example.com")
+    |> from(from_email_address) # also needs to be a validated email
+    |> subject(subject)
+    |> text_body(message)
   end
 end
 ```
 
-Now we need to set up our configuration our Mailer function
-Add this to your `confix.exs` file
+Now we need to set up our configuration for our Mailer function.
+Add this to your `config.exs` file:
 
 `config/config.exs`
 ```elixir
@@ -163,8 +176,8 @@ config :ses_email_test, SesEmailTest.Mailer,
 ...
 ```
 
-Now we need to ensure to source these environment variables
-Set up an `.env` file in the root of your application with the following
+Now we need to ensure to source these environment variables.
+Set up an `.env` file in the root of your application with the following:
 
 `.env`
 ```bash
@@ -174,7 +187,13 @@ export SES_SERVER=<server_name>
 export SES_PORT=<ses_port>
 ```
 
-Now lets set up our email route by editing our `scope` function
+Then run:
+
+```bash
+source .env
+```
+
+Now let's add a route to `router.ex` for rendering our form and sending our data.
 
 `web/router.ex`
 ```elixir
@@ -186,18 +205,21 @@ scope "/", SesEmailTest do
 end
 ```
 
-Now lets set up our email controller
+Let's set up our email controller
+
 `web/controllers/email_controller.ex`
+
 ```elixir
 defmodule SesEmailTest.EmailController do
   use SesEmailTest.Web, :controller
 
   def index(conn, _params) do
-    render conn, "email.html"
+    render conn, "index.html"
   end
 
-  def create(conn, %{"email" => %{"email_to" => email_to, "email_from" => email_from}}) do
-    SesEmailTest.Email.send_test_email(email_to, email_from)
+  def create(conn, %{"email" => %{"email_from" => email_from,
+  "subject" => subject, "message" => message}}) do
+    SesEmailTest.Email.send_test_email(email_from, subject, message)
     |> SesEmailTest.Mailer.deliver_now()
 
     conn
@@ -207,97 +229,109 @@ defmodule SesEmailTest.EmailController do
 end
 ```
 
-Lets create the view
+Create the view:
+
 `web/view/email_view.ex`
+
 ```elixir
 defmodule SesEmailTest.EmailView do
   use SesEmailTest.Web, :view
 end
 ```
 
-Now make the template
+Make your template:
+
 `web/templates/email/index.html.eex`
+
 ```elixir
-<%= form_for @conn, forgotpass_path(@conn, :create), [as: :email], fn f -> %>
-  <h6>Enter the email to send from:</h6>
+<%= form_for @conn, email_path(@conn, :create), [as: :email], fn f -> %>
+  <h5>Fill in the fields to send an email</h5>
   <div class="form-group">
-    <%= label f, :email_from, class: "control-label" %>
+    <%= label f, "Email address", class: "control-label" %>
     <%= text_input f, :email_from, placeholder: "email@example.com", class: "form-control" %>
   </div>
-  <h6>Enter the email to send to:</h6>
   <div class="form-group">
-    <%= label f, :email_to, class: "control-label" %>
-    <%= text_input f, :email_to, placeholder: "email@example.com", class: "form-control" %>
+    <%= label f, :subject, class: "control-label" %>
+    <%= text_input f, :subject, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= label f, :message, class: "control-label" %>
+    <%= text_input f, :message, class: "form-control" %>
   </div>
   <%= submit "Send", class: "btn btn-primary" %>
 <% end %>
 ```
 
-Now we can check if everything worked by starting our server `mix phoenix.server`
-Then visiting `localhost:4000/email`
+We can check if everything worked by starting our server with
+`mix phoenix.server`, then visiting `localhost:4000/email`.
 
-Put in the email address which you have validated
+For this example, you must use an email address that has been validated for
+sending and receiving email. You can validate more than one email address, or
+use the same email for sending and receiving the email. Put in the email
+address which you have validated.
 
-#### Testing
+### Testing
 
-Now we are going to test our application create your test file
+Create your test file so we can begin testing.
 
 `test/controllers/email_controller_test.exs`
 ```elixir
 defmodule SesEmailTest.EmailControllerTest do
-  use SesEmailTest.ConnCase, async: false 
+  use SesEmailTest.ConnCase, async: false
 
-  test "/forgotpass :: index", %{conn: conn} do
-    conn = get conn, forgotpass_path(conn, :index)
-    assert html_response(conn, 200) =~ "Enter the email to send from"
+  test "/email :: index", %{conn: conn} do
+    conn = get conn, email_path(conn, :index)
+    assert html_response(conn, 200) =~ "Fill in the fields to send an email"
   end
 
-  test "/forgotpass :: create", %{conn: conn} do
+  test "/email :: create", %{conn: conn} do
     conn = post conn, email_path(conn, :create,
-      %{"email" => %{"email_to" => <your_verified_email>, "email_from" => <your_verified_email>}})
-    assert redirected_to(conn, 302) =~ "/forgotpass"
+      %{"email" => %{"email_from" => <your_verified_email>, "subject" => "Here's a subject", "message" => "With a message"}})
+    assert redirected_to(conn, 302) =~ "/email"
   end
 end
 ```
 
-And let's run it with: `mix test`
+We can run our tests with `mix test`.
 Great it worked, but it also sent us an email.
-As it may get quite annoying to recieve emails every time you run your tests,
-lets fix that with the mocking library we installed at the beginning.
-Ensure to configure your tests to run asyncronously with `async: false` and adjust the second test as follows
+As it may get quite annoying to receive emails every time you run your tests,
+let's fix that with the mocking library we installed at the beginning.
+Ensure to configure your tests to run asynchronously with `async: false` and
+adjust the second test as follows.
 
 `test/controllers/email_controller_test.exs`
 ```elixir
 defmodule SesEmailTest.EmailControllerTest do
-  use SesEmailTest.ConnCase, async: false 
+  use SesEmailTest.ConnCase, async: false
 
   import Mock
 
-  test "/forgotpass :: index", %{conn: conn} do
-    conn = get conn, forgotpass_path(conn, :index)
-    assert html_response(conn, 200) =~ "Forgotten Password"
+  test "/email :: index", %{conn: conn} do
+    conn = get conn, email_path(conn, :index)
+    assert html_response(conn, 200) =~ "Fill in the fields to send an email"
   end
 
-  test "/forgotpass :: create", %{conn: conn} do
+  test "/email :: create", %{conn: conn} do
     with_mock SesEmailTest.Mailer, [deliver_now: fn(_) -> nil end] do
-      conn = post conn, forgotpass_path(conn, :create,
-      %{"email" => %{"email_to" => <verified_email>, "email_from" => <verified_email>}})
-      assert redirected_to(conn, 302) =~ "/forgotpass"
+      conn = post conn, email_path(conn, :create,
+        %{"email" => %{"email_from" => <your_verified_email>, "subject" => "Here's a subject", "message" => "With a message"}})
+      assert redirected_to(conn, 302) =~ "/email"
     end
   end
 end
 ```
 
-Now when running the test we checked everything as we did before, but no email was sent,
-that is because we stubbed out our `deliver_now` function to not do anything
-Note that when testing your application manually, emails will still send
+Now when running the test we checked everything as we did before, but no email
+was sent. That's thanks to stubbing out our `deliver_now` function to not do
+anything. Note that when using your application locally, emails will still send.
 
-#### Moving out of testing environment
+### Moving out of testing environment
 
-So after testing your application you will probably want more freedom to send emails to whoever you want without having to verify each email address
-To do so you will need to Increase your SES Sending Limits
+After testing your application, you will probably want more freedom to send
+emails to whoever you want without having to verify each email address.
+To do so, you will need to increase your SES Sending Limits.
 
-This can be done by opening a case by following the instructions [here](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/request-production-access.html)
-After your case has been approved by Amazon, you will now have freedom to send emails to whoever you want
-
-
+This can be done by opening a case by following the instructions
+[here](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/request-production-access.html).
+After your case has been approved by Amazon, you will be able to send
+emails to whoever you want.
