@@ -1,2 +1,5 @@
 use Mix.Config
-import_config "dev.secret.exs"
+
+config :info_sys, :wolfram,
+  app_id: "1234",
+  http_client: InfoSys.Test.HTTPClient

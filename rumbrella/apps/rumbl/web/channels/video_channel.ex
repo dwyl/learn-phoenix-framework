@@ -12,10 +12,12 @@ defmodule Rumbl.VideoChannel do
         where: a.id > ^last_seen_id,
         order_by: [asc: a.at, asc: a.id],
         limit: 200,
-        preload: [:user] # load the name of the person who posted the annotation
+        preload: [:user]
     )
-    resp = %{annotations: Phoenix.View.render_many(annotations, AnnotationView, "annotation.json")}
-    {:ok, resp, assign(socket, :video_id, video_id)}
+    resp = %{annotations: Phoenix.View.render_many(annotations, AnnotationView,
+                                                   "annotation.json")}
+
+    {:ok, resp, assign(socket, :video_id, video.id)}
   end
 
   def handle_in(event, params, socket) do
@@ -37,7 +39,6 @@ defmodule Rumbl.VideoChannel do
 
       {:error, changeset} ->
         {:reply, {:error, %{errors: changeset}}, socket}
-
     end
   end
 
@@ -50,7 +51,7 @@ defmodule Rumbl.VideoChannel do
   end
 
   defp compute_additional_info(ann, socket) do
-    for result <- InfoSys.compute(ann.body, limit: 1, timeout: 10_000) do # p.236 step 6.
+    for result <- InfoSys.compute(ann.body, limit: 1, timeout: 10_000) do
       attrs = %{url: result.url, body: result.text, at: ann.at}
       info_changeset =
         Repo.get_by!(Rumbl.User, username: result.backend)
@@ -59,7 +60,7 @@ defmodule Rumbl.VideoChannel do
 
       case Repo.insert(info_changeset) do
         {:ok, info_ann} -> broadcast_annotation(socket, info_ann)
-        {:error, _changetset} -> :ignore
+        {:error, _changeset} -> :ignore
       end
     end
   end
