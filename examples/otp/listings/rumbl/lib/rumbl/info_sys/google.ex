@@ -6,9 +6,9 @@
 # We make no guarantees that this code is fit for any purpose.
 # Visit http://www.pragmaticprogrammer.com/titles/phoenix for more book information.
 #---
-defmodule Rumbl.InfoSys.Google do
+defmodule InfoSys.Google do
   use GenServer     
-  alias Rumbl.InfoSys.Result
+  alias InfoSys.Result
 
   def start_link(query, query_ref, owner, limit) do  
     Task.start_link(fn -> fetch(query, query_ref, owner, limit) end)

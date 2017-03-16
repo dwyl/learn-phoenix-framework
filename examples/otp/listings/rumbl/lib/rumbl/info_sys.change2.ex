@@ -6,8 +6,8 @@
 # We make no guarantees that this code is fit for any purpose.
 # Visit http://www.pragmaticprogrammer.com/titles/phoenix for more book information.
 #---
-defmodule Rumbl.InfoSys do
-  @backends [Rumbl.InfoSys.Wolfram]
+defmodule InfoSys do
+  @backends [InfoSys.Wolfram]
 
   defmodule Result do
     defstruct score: 0, text: nil, url: nil, backend: nil
@@ -31,7 +31,7 @@ defmodule Rumbl.InfoSys do
   defp spawn_query(backend, query, limit) do
     query_ref = make_ref()
     opts = [backend, query, query_ref, self(), limit]
-    {:ok, pid} = Supervisor.start_child(Rumbl.InfoSys.Supervisor, opts)
+    {:ok, pid} = Supervisor.start_child(InfoSys.Supervisor, opts)
     monitor_ref = Process.monitor(pid)
     {pid, monitor_ref, query_ref}
   end

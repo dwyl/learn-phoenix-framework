@@ -52,18 +52,19 @@ _trying_ to make it **go _faster_**<sup>1</sup> ...
 ***Or***... _get_ the [**_best_ car**](http://www.cnbc.com/2015/08/27/teslas-p85d-is-the-best-car-consumer-reports-has-ever-tested.html) built for speed, safety and environmental friendliness and ***stop wasting time*** on the past!
 
 ![model-s-photo](https://cloud.githubusercontent.com/assets/194400/22628333/e8a107ee-ebc9-11e6-9140-6be11cdddd87.jpg "Tesla Model S") <br />
-<small>_**Note**: in the case of Phoenix,
-you're getting a Tesla Model S P100D for the "price" of a Ford Fiesta!
+<small>_**Note**: with Phoenix,
+you're getting a [Tesla Model S P100D](https://www.tesla.com/en_GB/blog/new-tesla-model-s-now-quickest-production-car-world) for the "price" of a Ford Fiesta!
 A **logical** choice, **right**_?
 </small>
 
 Just like there is an _entire industry_ involved in "_tuning_" distinctly
 "_average_" cars (_that weren't made for high performance!_)
-there's a similar one for "_optimsing_" slow web applications.
+there's a similar one for "_optimizing_" slow web applications.
 Organizations end up spending _way_ more time and money
 (_"engineering" consultants and server resources_!)
-trying to make their "_old tech_" scale or serve more (_concurrent users_),
-than they would simply making smarter tech choices.
+trying to make their "_old tech_" scale or serve more (_concurrent_) users,
+than they would simply making smarter tech choices
+(_and avoiding ["sunk cost bias"](http://www.lifehack.org/articles/communication/how-the-sunk-cost-fallacy-makes-you-act-stupid.html)_).
 
 <sup>1: car mod fails:
 [ridelust.com/30-custom-cars-from-around-the-world](http://www.ridelust.com/30-custom-cars-from-around-the-world)
@@ -180,7 +181,6 @@ https://youtu.be/srtMWzyqdp8
 
 <br /><br /><br />
 
-
 # _Our Top 10_ Reasons _Why_ Phoenix
 
 > "_**Phoenix** provides the **productivity** of Ruby-on-Rails <br />
@@ -192,8 +192,11 @@ of people around the world who are _excited_ about making Phoenix
 an _amazing_ tool for building web apps! <br />
 Having [_welcomming_ people](https://github.com/phoenixframework/phoenix/issues/1624) who will
   + help you when you get stuck, patiently explaining things
-  + answer questions (_both "**noob**" and "**advanced**"_) and
-  + openly discuss your ideas for improvements. <br />
+  + answer questions (_both
+    ["**noob**"](https://elixirforum.com/t/defimpl-phoenix-param-to-override-to-param-causes-functionclauseerror-no-function-clause-matching-in-phoenix-param-rumbl-video-to-param-1/3987)
+    and "**advanced**"_) and
+  + ***openly discuss*** (_your_) _**ideas** for **improvements**_.
+  see: https://elixirforum.com/t/phoenix-v1-3-0-rc-0-released/3947 <br />
  <br />
 1. Phoenix uses the **Elixir** programming language which means your
 app is compiled and run on the ***Erlang Virtual Machine*** "BEAM". <br />

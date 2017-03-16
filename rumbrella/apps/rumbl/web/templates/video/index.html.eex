@@ -1,0 +1,33 @@
+<h2>Listing videos</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Url</th>
+      <th>Title</th>
+      <th>description</th>
+      <th>Categories</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for video <- @videos do %>
+    <tr>
+      <td><%= video.id %></td>
+      <td><%= video.url %></td>
+      <td><%= video.title %></td>
+      <td><%= video.description %></td>
+      <td><%= video.category_id%></td>
+
+      <td class="text-right">
+        <%= link "Watch", to: watch_path(@conn, :show, video), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: video_path(@conn, :edit, video), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: video_path(@conn, :delete, video), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New video", to: video_path(@conn, :new) %>
