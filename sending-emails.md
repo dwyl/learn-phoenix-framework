@@ -272,6 +272,8 @@ address which you have validated.
 
 ### Testing
 
+#### With Mock
+
 Create your test file so we can begin testing.
 
 `test/controllers/email_controller_test.exs`
@@ -324,6 +326,40 @@ end
 Now when running the test we checked everything as we did before, but no email
 was sent. That's thanks to stubbing out our `deliver_now` function to not do
 anything. Note that when using your application locally, emails will still send.
+
+
+#### With Bamboo.test
+
+- Add to your config/test.exs file the Bamboo test adapter:
+```elixir
+config :ses_email_test:, SesEmailTest.Mailer,
+  adapter: Bamboo.TestAdapter
+```
+
+The values in the test config file will overide the default adapter define in your ```config.exs```
+
+- Test the structure format of an email:
+```elixir
+test "strucuture email ok" do
+
+  email = Email.send_email("test@email.com", "Welcome", "Hello there")
+
+  assert email.to == "test@email.com"
+  assert email.subject == "Welcome"
+  assert email.text_body =~ "Hello there"
+end
+```
+
+- Test the email has been sent
+```elixir
+test "Send Welcome email" do
+  email = Email.send_email("test@email.com", "Welcome", "Hello there")
+  SesEmailTest.Mailer.deliver_now(email)
+  assert_delivered_email Email.send_email("test@email.com", "Welcome", "Hello there")
+end
+```
+
+see [Bamboo.Test documentation](https://hexdocs.pm/bamboo/Bamboo.Test.html) for more details.
 
 ### Moving out of testing environment
 
