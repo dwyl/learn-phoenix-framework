@@ -27,6 +27,16 @@ defmodule Rumbl.User do
     |> put_pass_hash()
   end
 
+  # register with only email address
+  def register_changeset(model, params \\ :empty) do
+    IO.inspect params
+    model
+    |> IO.inspect
+    |> cast(params, ~w(username name))
+    |> validate_required([:username])
+    |> changeset(params)
+  end
+
   defp put_pass_hash(changeset) do
     case changeset do
       %Ecto.Changeset{valid?: true, changes: %{password: pass}} ->
