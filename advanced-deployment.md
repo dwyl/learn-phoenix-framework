@@ -3,6 +3,11 @@
 
 ## Why?
 
+Erlang gives us "***hot-code upgrades***" which mean we can do
+"***Zero Downtime Deployment***".
+This means people can _continue_ using the app
+`while`
+
 
 
 ## What?
@@ -34,6 +39,10 @@ The two (_main_) tools we will be using are:
 + `mkdir /git`
 + `chmod -R 777 /git`
 
++ On the _remote_ server,
+Create the file `/home/builder/prod.secret.exs` with this command:
+`mkdir -p /home/builder/ && vi /home/builder/prod.secret.exs`
+
 
 ### Setup EDeliver Project
 
@@ -64,15 +73,29 @@ TEST_AT="/test/my_awesome_app" # deploy directory on staging hosts. default is D
 PRODUCTION_HOSTS="server ip / hostname" # deploy / production hosts separated by space
 PRODUCTION_USER="root" # local user at deploy hosts
 DELIVER_TO="/opt/my_awesome_app" # deploy directory on production hosts
+
+# For *Phoenix* projects, symlink prod.secret.exs to our tmp source
+pre_erlang_get_and_update_deps() {
+  local _prod_secret_path="/home/builder/prod.secret.exs"
+  if [ "$TARGET_MIX_ENV" = "prod" ]; then
+    __sync_remote "
+      ln -sfn '$_prod_secret_path' '$BUILD_AT/config/prod.secret.exs'
+    "
+  fi
+}
 ```
 
 
 
 
+Paste the contents of your _local_ `config/prod.secret.exs` into the remote one.
+
 ## Background Reading / Watching
 
 + Lunchdown: Deploying Elixir and Phoenix Applications
 https://youtu.be/jOeR0kkUd7I
++ Deploying Elixir applications with Edeliver:
+http://blog.plataformatec.com.br/2016/06/deploying-elixir-applications-with-edeliver/
 + Getting Elixir / Phoenix running on Digital Ocean with edeliver:
 https://gist.github.com/mattweldon/2e8ecb953216438ad168
 (_links/packages are out-of-date but a good starting point_)
