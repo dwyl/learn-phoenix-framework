@@ -22,7 +22,7 @@ The two (_main_) tools we will be using are:
 
 ### Setup Server
 
-+ SSH to server as root e.g: `ssh root@178.62.95.224`
++ SSH to server as root e.g: `ssh root@178.62.57.75`
 (_replace for your IP Address_)
 + `sudo apt-get install git`
   + `git config --global user.name "Your Name"`
@@ -85,17 +85,41 @@ pre_erlang_get_and_update_deps() {
 }
 ```
 
-
-
-
 Paste the contents of your _local_ `config/prod.secret.exs` into the remote one.
+
+```
+mix release.init
+MIX_ENV=prod mix release --env=prod
+```
+
+mix edeliver build release --branch=master --verbose
 
 ## Background Reading / Watching
 
 + Lunchdown: Deploying Elixir and Phoenix Applications
 https://youtu.be/jOeR0kkUd7I
++ Elixir Forum Deployment Topic: https://elixirforum.com/c/popular-topics/deployment
 + Deploying Elixir applications with Edeliver:
 http://blog.plataformatec.com.br/2016/06/deploying-elixir-applications-with-edeliver/
 + Getting Elixir / Phoenix running on Digital Ocean with edeliver:
 https://gist.github.com/mattweldon/2e8ecb953216438ad168
 (_links/packages are out-of-date but a good starting point_)
++ Is Phoenix deployment really that hard? http://cloudless.studio/articles/29-is-phoenix-deployment-really-that-hard
++ Elixir/Phoenix deployments using Distillery http://crypt.codemancers.com/posts/2016-10-06-elixir-phoenix-distillery/
++ Understanding `Mix.Tasks.Release.Init`
+https://hexdocs.pm/distillery/Mix.Tasks.Release.Init.html
++ Elixir Phoenix App deployed into a Load Balanced DigitalOcean setup: http://www.akitaonrails.com/2016/12/23/elixir-phoenix-app-deployed-into-a-load-balanced-digitalocean-setup
++ Simplifying Elixir Releases With Edeliver: http://www.east5th.co/blog/2017/01/16/simplifying-elixir-releases-with-edeliver/
+
+Now attempting to follow this:
+Elixir/Phoenix deployments using Distillery http://crypt.codemancers.com/posts/2016-10-06-elixir-phoenix-distillery
+
+
+
+On the server run the following command:
+```
+sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 4000
+```
+
+
+scp /dwyl/chat/_build/prod/rel/chat/releases/0.0.1/chat.tar.gz root@178.62.57.75:/git/chat/builds/rel/chat/releases/0.0.1/
