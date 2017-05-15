@@ -438,29 +438,50 @@ Provided you followed _all_ the instructions above you should expect to see:
 
 ### Deploy your Phoenix Web App using EDeliver
 
-
+Deploy the release to the VM by running this command on your localhost:
 ```
 mix edeliver deploy release to production
+```
+You should see:
+![deploy-success](https://cloud.githubusercontent.com/assets/194400/26075001/a82cf09e-39ab-11e7-81e2-4f66f4c8d622.png)
+
+
+#### Run the App on the VM
+
+Start the app on the VM by running this command on your localhost:
+```
 mix edeliver start production
 ```
-
-You should expect to see the following output:
-
-![deploy-app-to-azure](https://cloud.githubusercontent.com/assets/194400/26028205/9d2f3ca4-3813-11e7-949e-405a09ce2137.png)
+You should expect to see the following output _confirming_ the app started:
+![production-start-succcess](https://cloud.githubusercontent.com/assets/194400/26075108/06c3b232-39ac-11e7-89a8-cb8f3178ccad.png)
 
 ### Confirm the Phoenix App is Working in a Web Browser
 
 Visit your app by IP Address in your Web Browser. e.g: http://52.232.127.28
 
-![phoenix-app-working-on-azure](https://cloud.githubusercontent.com/assets/194400/26028344/8572b192-3816-11e7-8e7b-2011da765348.png)
+![phoenix-app-working-on-azure](https://cloud.githubusercontent.com/assets/194400/26075611/c91fae3e-39ad-11e7-8672-ef898e15c130.png)
 
 
+### Update the App to Re-Test Deployment
+
+Let's update the template in `web/templates/page/index.html.eex`
+so that we can test the production is working.
+
+![update-file](https://cloud.githubusercontent.com/assets/194400/26075790/7249ad7a-39ae-11e7-9359-020a7b69a3a6.gif)
 
 
+`git commit` your changes. then re-deploy:
 
+```
+mix edeliver build release
+mix edeliver deploy release to production
+mix edeliver start production
+```
+Output from redeploy:
+![output-from-redeploy](https://cloud.githubusercontent.com/assets/194400/26076571/1659ba66-39b1-11e7-9eb0-15687d419ad1.png)
 
-
-
+Result in browser:
+![image](https://cloud.githubusercontent.com/assets/194400/26076536/fb546ebe-39b0-11e7-865b-b48639abc87b.png)
 
 # 2. Automated Continuous Deployment (CD)
 
