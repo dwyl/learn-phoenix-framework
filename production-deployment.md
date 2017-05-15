@@ -83,7 +83,7 @@ test _just_ the deployment process ("_pipeline_") in _isolation_
 https://github.com/nelsonic/hello_world_edeliver
 
 
-### 1. Pre-Requisites (_Before You Start_)
+### 1.1 Pre-Requisites (_Before You Start_)
 
 + [ ] **Elixir** _installed_ on your localhost
 + [ ] **Phoenix** _installed_ on your localhost
@@ -94,7 +94,7 @@ https://github.com/nelsonic/hello_world_edeliver
   + **Digital Ocean**: [github.com/dwyl/**DigitalOcean**-Setup](https://github.com/dwyl/DigitalOcean-Setup)
 + [ ] **25 Minutes** of distraction-free time.
 
-### 2. Create the `hello_world_edeliver` Phoenix Project on Your Localhost
+### 1.2 Create the `hello_world_edeliver` Phoenix Project on Your Localhost
 
 Create a _new_ Phoenix web application project with the following command:
 
@@ -105,7 +105,7 @@ mix phoenix.new hello_world_edeliver --no-ecto
 so we don't have to setup a Database _yet_.
 We'll cover PostgreSQL setup in "**Part 3**".
 
-#### 2.2 Install (Default) Dependencies
+#### 1.2.2 Install (Default) Dependencies
 
 You will be prompted to install "_Fetch and install dependencies? [Yn]_"
 ![deploy-fetch-and-install](https://cloud.githubusercontent.com/assets/194400/26062707/896dd5ce-3983-11e7-9f33-67a94c323b60.png)
@@ -114,7 +114,7 @@ Type "**Y**" then press [**Enter**] to fetch the required dependencies.
 
 ![dependencies-installed](https://cloud.githubusercontent.com/assets/194400/26062763/b57efa1c-3983-11e7-8cba-9e0c397e72d5.png)
 
-#### 2.3 Run the `hello_world_edeliver` Phoenix Project _Locally_
+#### 1.2.3 Run the `hello_world_edeliver` Phoenix Project _Locally_
 
 Next, change directory into the project and _run_ the server:
 ```
@@ -125,7 +125,7 @@ mix phoenix.server
 You should see the following in your terminal window:
 ![app-running](https://cloud.githubusercontent.com/assets/194400/26062982/7efae43c-3984-11e7-882b-ae38e207edaf.png)
 
-#### 2.4 Visit in Web Browser
+#### 1.2.4 Visit in Web Browser
 
 Now, visit the project in your web browser (_to confirm it's working_): <br />
 http://localhost:4000/
@@ -133,11 +133,11 @@ http://localhost:4000/
 ![phoneix-project-working](https://cloud.githubusercontent.com/assets/194400/26063083/cf8376b2-3984-11e7-8af7-8421ec020fad.png)
 
 
-### 3. Install Edeliver & Distillery Dependencies
+### 1.3 Install Edeliver & Distillery Dependencies
 
 Let's add the two necessary dependencies we need to package and deploy our app:
 
-#### 3.1 Open/Edit Your `mix.exs` File
+#### 1.3.1 Open/Edit Your `mix.exs` File
 
 Open/edit the `mix.exs` file then add `:edeliver` & `:distillery`
 to the list of dependencies (_usually at the bottom of the file_):
@@ -149,7 +149,7 @@ to the list of dependencies (_usually at the bottom of the file_):
 {:distillery, ">= 0.8.0", warn_missing: false}
 ```
 
-#### 3.2 Include `:edeliver` in `applications` List
+#### 1.3.2 Include `:edeliver` in `applications` List
 
 Find the section in `mix.exs` that starts with:
 ```elixir
@@ -164,7 +164,7 @@ Add `:edeliver` to the end of the list:
 
 > _**Note**: we like to have **one** app per line for clarity._
 
-#### 3.3 Install
+#### 1.3.3 Install
 
 In your terminal run the command:
 
@@ -175,11 +175,11 @@ If the dependency installation _would_, you should see:
 
 ![deploy-install-deps](https://cloud.githubusercontent.com/assets/194400/26066672/97b38f14-398f-11e7-8f1e-7a8d592202c3.png)
 
-### 4. Update `config/prod.exs` Settings
+### 1.4 Update `config/prod.exs` Settings
 
 Open/Edit the `config/prod.exs` file and edit the following:
 
-#### 4.1 Update the `config` Section:
+#### 1.4.1 Update the `config` Section:
 
 Locate the `config` line <br />
 and update the settings for `url`, `server`, `root` and `version`:
@@ -197,7 +197,7 @@ config :hello_world_edeliver, HelloWorldEdeliver.Endpoint,
   cache_static_manifest: "priv/static/manifest.json"
 ```
 
-#### 4.2 No Secrets > Comment Out The Line (_For Now_)
+#### 1.4.2 No Secrets > Comment Out The Line (_For Now_)
 
 Open/Edit the `config/prod.exs` file, scroll to the bottom <br />
 and comment out the line that reads: <br />
@@ -208,9 +208,9 @@ import_config "prod.secrets.exs"
 ![phoenix-comment-out-prod-secrets](https://cloud.githubusercontent.com/assets/194400/26068080/2e78078c-3994-11e7-97b5-918ee7142565.gif)
 
 
-### 5. Configure Edeliver Deployment Settings
+### 1.5 Configure Edeliver Deployment Settings
 
-#### 5.1 Run the `mix release.init` command/task
+#### 1.5.1 Run the `mix release.init` command/task
 
 In the terminal on your localhost, run the following command:
 
@@ -230,14 +230,14 @@ with `config.exs` file in it:
 https://github.com/nelsonic/hello_world_edeliver/blob/master/rel/config.exs
 
 
-#### 5.2 Create a `.deliver` _Directory_
+#### 1.5.2 Create a `.deliver` _Directory_
 
 Create a `.deliver` directory in the project:
 ```sh
 mkdir .deliver
 ```
 
-#### 5.3 Create the `.deliver/config` _File_
+#### 1.5.3 Create the `.deliver/config` _File_
 
 Create/edit the `.deliver/config` file in your choice of editor e.g:
 ```sh
