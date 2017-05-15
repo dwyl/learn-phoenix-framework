@@ -31,7 +31,17 @@ If you are _unfamiliar_ with SSH, please see: <br />
 https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys
 
 
+## _Who_?
 
+This guide is intended for people who
+are ***completely new*** to **Phoenix**. <br />
+While it _can_ be used by "_developers_" it's
+_actually_ meant for people who identify as "***Dev Ops***". <br />
+***No Assumptions*** are made about coding skills or Elixir/Phoenix knowledge.
+
+> _If **anything** is **unclear** or you have a **any questions**, <br />
+please **open** an **issue**: https://github.com/dwyl/learn-devops/issues
+(thanks)_!
 
 
 # How?
@@ -68,7 +78,7 @@ test _just_ the deployment process ("_pipeline_") in _isolation_
 (_minimising the variables to avoid contending with any "application issues"_).
 
 > The _complete_ code for this example is available at:
-https://github.com/nelsonic/hello_edeliver
+https://github.com/nelsonic/hello_world_edeliver
 
 
 ### 1. Pre-Requisites (_Before You Start_)
@@ -121,7 +131,7 @@ http://localhost:4000/
 ![phoneix-project-working](https://cloud.githubusercontent.com/assets/194400/26063083/cf8376b2-3984-11e7-8af7-8421ec020fad.png)
 
 
-### 3. Install Edeliver & Distillery
+### 3. Install Edeliver & Distillery Dependencies
 
 Let's add the two necessary dependencies we need to package and deploy our app:
 
@@ -132,10 +142,15 @@ to the list of dependencies (_usually at the bottom of the file_):
 
 ![phoenix-add-edeliver-dependencies](https://cloud.githubusercontent.com/assets/194400/26064396/b81706c0-3988-11e7-9972-405020b7741f.gif)
 
+```elixir
+{:edeliver, "~> 1.4.0"},
+{:distillery, ">= 0.8.0", warn_missing: false}
+```
+
 #### 3.2 Include `:edeliver` in `applications` List
 
 Find the section in `mix.exs` that starts with:
-```
+```elixir
 def application do
     [mod: {HelloWorldEdeliver, []},
       applications: [ :phoenix
@@ -150,6 +165,38 @@ Add `:edeliver` to the end of the list:
 #### 3.3 Install
 
 In your terminal run the command:
+
+```sh
+mix deps.get
+```
+If the dependency installation _would_, you should see:
+
+![deploy-install-deps](https://cloud.githubusercontent.com/assets/194400/26066672/97b38f14-398f-11e7-8f1e-7a8d592202c3.png)
+
+### 4. Update `config/prod.exs` Settings
+
+Open/Edit the `config/prod.exs` file and edit the following:
+
+#### 4.1 Update the `config` for Production:
+
+Locate the `config` line <br />
+and update the settings for `url`, `server`, `root` and `version`:
+
+![update-prod-exs](https://cloud.githubusercontent.com/assets/194400/26068996/67baca40-3997-11e7-8ad7-bbd6684c7079.gif)
+
+
+#### 4.2 No Secrets > Comment Out The Line (_For Now_)
+
+Open/Edit the `config/prod.exs` file, scroll to the bottom <br />
+and comment out the line that reads: <br />
+```elixir
+import_config "prod.secrets.exs"
+```
+
+![phoenix-comment-out-prod-secrets](https://cloud.githubusercontent.com/assets/194400/26068080/2e78078c-3994-11e7-97b5-918ee7142565.gif)
+
+
+### 5. Configure Deployment Settings
 
 
 
@@ -248,6 +295,40 @@ MIX_ENV=prod mix release --env=prod
 
 mix edeliver build release --branch=master --verbose
 
+
+
+### X. Set Firewall Re-Routing for PORT 4000 > 80
+
+
+On the server run the following command:
+```
+sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 4000
+```
+To _confirm_ the routing from port 80 to 4000 run the following command:
+```
+sudo iptables -t nat --line-numbers -L
+```
+That should _list_ the routing rules:
+![iptables-list-rules](https://cloud.githubusercontent.com/assets/194400/26026888/21132ea8-37fc-11e7-8a48-00a0fb2f1746.png)
+
+If you need to _undo_ this command run:
+```
+sudo iptables -t nat -F
+```
+
+
+## Credits
+
+_**Credit**: the instructions in this "**Hello World**"
+deployment are adapted from the **superb** post by @pcorey:_ <br />
+http://www.east5th.co/blog/2017/01/16/simplifying-elixir-releases-with-edeliver
+<br />
+_We have merely **simplified**
+(or in some cases **expanded/clarified**) the steps. <br />
+But **all** credit goes to Pete for distilling the instructions
+for using Edeliver in the first place!_ ;-)
+
+
 ## Background Reading / Watching
 
 + Lunchdown: Deploying Elixir and Phoenix Applications
@@ -270,40 +351,7 @@ https://dockyard.com/blog/2016/01/28/running-elixir-and-phoenix-projects-on-a-cl
 https://medium.com/@brucepomeroy/setting-up-and-elixir-cluster-on-ec2-with-edeliver-and-distillery-2500848cc34f
 + Hot code reloading with Erlang and Rebar3
 https://medium.com/@kansi/hot-code-loading-with-erlang-and-rebar3-8252af16605b
-
-Now attempting to follow this:
-Elixir/Phoenix deployments using Distillery http://crypt.codemancers.com/posts/2016-10-06-elixir-phoenix-distillery
-
-
-On the server run the following command:
-```
-sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 4000
-```
-To _confirm_ the routing from port 80 to 4000 run the following command:
-```
-sudo iptables -t nat --line-numbers -L
-```
-That should _list_ the routing rules:
-![iptables-list-rules](https://cloud.githubusercontent.com/assets/194400/26026888/21132ea8-37fc-11e7-8a48-00a0fb2f1746.png)
-
-If you need to _undo_ this command run:
-```
-sudo iptables -t nat -F
-```
-
-scp /dwyl/chat/_build/prod/rel/chat/releases/0.0.1/chat.tar.gz root@178.62.57.75:/git/chat/builds/rel/chat/releases/0.0.1/
-
-
-## Credits
-
-_**Credit**: the instructions in this "**Hello World**"
-deployment are adapted from the **superb** post by @pcorey:_ <br />
-http://www.east5th.co/blog/2017/01/16/simplifying-elixir-releases-with-edeliver
-<br />
-_We have merely **simplified**
-(or in some cases **expanded/clarified**) the steps. <br />
-But **all** credit goes to Pete for distilling the instructions
-for using Edeliver in the first place!_ ;-)
++ Elixir/Phoenix deployments using Distillery http://crypt.codemancers.com/posts/2016-10-06-elixir-phoenix-distillery
 
 ## Frequently Asked/Answered Questions? (FAQ)
 
