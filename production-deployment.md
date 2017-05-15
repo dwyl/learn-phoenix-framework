@@ -62,8 +62,12 @@ with **_Zero_ Downtime** Delpoys/Updates!
 
 # 1. Single Server "Direct" Deployment
 
+
+
+
 For the purposes of this guide I will be using Microsoft Azure
-Linux Virtual Machines, but this setup has _also_ been tested on:
+Linux Virtual Machines, <br />
+but this setup has _also_ been tested on:
 + Amazon Web Services (AWS) Elastic Cloud Compute (EC2)
 + Digital Ocean
 
@@ -92,7 +96,7 @@ https://github.com/nelsonic/hello_world_edeliver
   [github.com/dwyl/learn-**amazon-web-services**](https://github.com/dwyl/learn-amazon-web-services)
   + Microsoft **Azure**: [github.com/dwyl/learn-microsoft-azure](https://github.com/dwyl/learn-microsoft-**azure**)
   + **Digital Ocean**: [github.com/dwyl/**DigitalOcean**-Setup](https://github.com/dwyl/DigitalOcean-Setup)
-+ [ ] **25 Minutes** of distraction-free time.
++ [ ] **~~25~~ 45 Minutes** of distraction-free time.
 
 ### 1.2 Create the `hello_world_edeliver` Phoenix Project on Your Localhost
 
@@ -316,12 +320,139 @@ We will define the `~/.profile` below!
 (_`~/.profile` is where we will keep environment variables on the VM_!)
 
 
-### X. Login to the (_Remote_) Virtual Machine
+#### 1.5.4 Add `.deliver/releases` to `.gitignore`
 
-> The
+On your localhost in your terminal run the following command:
+
+```
+echo ".deliver/releases/" >> .gitignore
+```
+That will ensure that the _binary_ releases aren't added to GitHub.
+(_no point adding megabytes of binary to GitHub_!)
+
+<br />
+
+### 1.6 Login to the (_Remote_) Virtual Machine
+
+> The next section requires SSH access to the (_remote_) Virtual Machine (VM).
+> in our case the VM's IP address is `52.232.127.28` <br />
+> therefore we login to VM using `ssh azure@52.232.127.28`. <br />
+> For detail see: https://github.com/dwyl/learn-microsoft-azure#9-login-with-ssh
+
+#### 1.6.1 Install "Build Tools" on the Virtual Machine
+
+We need to install the essential build tools on the VM in order to
+build the release:
+
+Add the Erlang Solutions release:
+```
+wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
+```
+You should see the following output (_or similar_):
+![install erlang](https://cloud.githubusercontent.com/assets/194400/26072769/b63b0e98-39a4-11e7-8cf8-7363ab28fb55.png)
+
+Update your VM (_to install erlang and any security updates_)
+```
+sudo apt-get update
+```
+![update VM](https://cloud.githubusercontent.com/assets/194400/26072850/f6412f40-39a4-11e7-9130-69d7c8e3de31.png)
+
+Now install remaining build dependencies including node.js
+(_for compiling static assets_):
+```
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install elixir erlang-base-hipe build-essential erlang-parsetools erlang-dev nodejs -y
+```
+![install dependencies](https://cloud.githubusercontent.com/assets/194400/26072983/5496104c-39a5-11e7-9d56-06ecce0cbbba.png)
+
+> Node.js installed as per the "_official_" instructions: <br />
+https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions
+
+##### Confirm Elixir is Installed on the VM
+
+Run the following command to _confirm_ Elixir is installed on the VM:
+```
+iex -s
+```
+You should see:
+![elixir installe](https://cloud.githubusercontent.com/assets/194400/26073552/236bb2e0-39a7-11e7-979b-14f953309065.png)
 
 
-#### Install "Build Tools" on the Virtual Machine
+<!--
+#### 1.6.2
+
+```
+mix local.hex
+mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez
+```
+-->
+
+#### 1.6.2 Edit Your `~/.profile` File on Azure Instance to set TCP Port for Phoenix
+
+Your Phoenix Web Application expects to have an environment variable
+defined for the TCP PORT which the app will listen on.
+In our case we are going to stick with the default and use `4000`.
+
+Run the following command to append the line
+`export PORT=4000` to your `~/.profile` file:
+```
+"echo export PORT=4000" >> ~/.profile
+```
+Then run the following command to ensure that `~/.profile` file is _loaded_:
+```
+source ~/.profile
+```
+You can _confirm_ that the `PORT` environment variable is now define on the VM
+by running the `printenv` command:
+```
+printenv
+```
+![azure-define-port](https://cloud.githubusercontent.com/assets/194400/26028291/5c29b336-3815-11e7-8ca3-3f595b12579c.png)
+
+### Redirect TCP Port 80 to Port 4000 (where our app is listening)
+
+On the Azure Instance run the following command:
+```
+sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 4000
+```
+To _confirm_ the routing from port 80 to 4000 run the following command:
+```
+sudo iptables -t nat --line-numbers -L
+```
+![azure-port-redirect-80-to-4000](https://cloud.githubusercontent.com/assets/194400/26028325/1a9ee228-3816-11e7-9dd0-d04fb09d6169.png)
+
+Now when you _deploy_ the app to this instance
+it will "_listen_" on PORT 4000,
+but the Firewall will re-route `http` requests from port `80` to `4000`.
+
+### Build the Release
+
+Run the following command on your localhost (_**not** logged into the VM_):
+```
+mix edeliver build release --verbose
+```
+Provided you followed _all_ the instructions above you should expect to see:
+
+![release-build-success](https://cloud.githubusercontent.com/assets/194400/26074008/49f18c5e-39a8-11e7-94c4-9e40f59595c6.png)
+
+
+### Deploy your Phoenix Web App using EDeliver
+
+
+```
+mix edeliver deploy release to production
+mix edeliver start production
+```
+
+You should expect to see the following output:
+
+![deploy-app-to-azure](https://cloud.githubusercontent.com/assets/194400/26028205/9d2f3ca4-3813-11e7-949e-405a09ce2137.png)
+
+### Confirm the Phoenix App is Working in a Web Browser
+
+Visit your app by IP Address in your Web Browser. e.g: http://52.232.127.28
+
+![phoenix-app-working-on-azure](https://cloud.githubusercontent.com/assets/194400/26028344/8572b192-3816-11e7-8e7b-2011da765348.png)
 
 
 
@@ -334,8 +465,19 @@ We will define the `~/.profile` below!
 # 2. Automated Continuous Deployment (CD)
 
 
+# 3. PostgreSQL
 
-# 3. Cluster Setup Server
+For this tutorial we will be using the **Microsoft Azure PostgreSQL _Service_**,
+because they handle Scaling, Replication and Backups. <br >
+See: https://github.com/dwyl/learn-microsoft-azure/issues/5
+
+> If you are interested in knowing how to deploy your own PostgreSQL
+High Availability Cluster _From scratch_, let us know! <br />
+Please leave a comment on: https://github.com/dwyl/learn-postgresql/issues/38
+
+
+
+# 4. Cluster Setup Server
 
 Thankfully, if you followed the "Single Server Setup" (_above_),
 a lot of this will be _familiar_ to you.
