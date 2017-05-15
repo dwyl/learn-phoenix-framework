@@ -26,7 +26,8 @@ binary including BEAM so there is _nothing_ to install on the VM!
 + **edeliver**: https://github.com/boldpoker/edeliver - deploys the release
 to VM(s) using SSH.
 
-> **Note**: We will also be using SSH to login to remote instances. <br />
+> **Note**: We will also be using `SSH` ("_Secure Shell_")
+to login to remote instances. <br />
 If you are _unfamiliar_ with SSH, please see: <br />
 https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys
 
@@ -36,8 +37,9 @@ https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh
 This guide is intended for people who
 are ***completely new*** to **Phoenix**. <br />
 While it _can_ be used by "_developers_" it's
-_actually_ meant for people who identify as "***Dev Ops***". <br />
-***No Assumptions*** are made about coding skills or Elixir/Phoenix knowledge.
+_actually_ meant for people who identify as "***Dev Ops***"
+or "**IT Operations**". <br />
+_Therefore_ ***No Assumptions*** are made about coding skills or Elixir/Phoenix knowledge.
 
 > _If **anything** is **unclear** or you have a **any questions**, <br />
 please **open** an **issue**: https://github.com/dwyl/learn-devops/issues
@@ -177,13 +179,23 @@ If the dependency installation _would_, you should see:
 
 Open/Edit the `config/prod.exs` file and edit the following:
 
-#### 4.1 Update the `config` for Production:
+#### 4.1 Update the `config` Section:
 
 Locate the `config` line <br />
 and update the settings for `url`, `server`, `root` and `version`:
 
-![update-prod-exs](https://cloud.githubusercontent.com/assets/194400/26068996/67baca40-3997-11e7-8ad7-bbd6684c7079.gif)
+![update-prod-exs](https://cloud.githubusercontent.com/assets/194400/26068996/67baca40-3997-11e7-8ad7-bbd6684c7079.gif) <br />
+End result:
 
+```elixir
+config :hello_world_edeliver, HelloWorldEdeliver.Endpoint,
+  http: [port: {:system, "PORT"}],
+  url: [host: "...", port: {:system, "PORT"}],
+  server: true,
+  root: ".",
+  version: Mix.Project.config[:version],
+  cache_static_manifest: "priv/static/manifest.json"
+```
 
 #### 4.2 No Secrets > Comment Out The Line (_For Now_)
 
@@ -196,13 +208,123 @@ import_config "prod.secrets.exs"
 ![phoenix-comment-out-prod-secrets](https://cloud.githubusercontent.com/assets/194400/26068080/2e78078c-3994-11e7-97b5-918ee7142565.gif)
 
 
-### 5. Configure Deployment Settings
+### 5. Configure Edeliver Deployment Settings
+
+#### 5.1 Run the `mix release.init` command/task
+
+In the terminal on your localhost, run the following command:
+
+```sh
+mix release.init
+```
+You should see the following output (_or similar_):
+
+![mix-release](https://cloud.githubusercontent.com/assets/194400/26070132/605ce8ec-399b-11e7-916f-395c3e5a67d9.png)
+
+That will have create a `/rel` directory in the project.
+with `config.exs` file in it:
+
+![image](https://cloud.githubusercontent.com/assets/194400/26070192/9cfb41cc-399b-11e7-83b3-d193b4273bab.png)
+
+> For an _example_ of the the complete  `rel/config.exs` file see: <br />
+https://github.com/nelsonic/hello_world_edeliver/blob/master/rel/config.exs
+
+
+#### 5.2 Create a `.deliver` _Directory_
+
+Create a `.deliver` directory in the project:
+```sh
+mkdir .deliver
+```
+
+#### 5.3 Create the `.deliver/config` _File_
+
+Create/edit the `.deliver/config` file in your choice of editor e.g:
+```sh
+vi .deliver/config
+```
+> Yes, the `.deliver/config` file does not have a file extension. <br />
+Don't worry, it's _meant_ to be that way.
+
+Paste the following into the file:
+
+```bash
+APP="hello_world_edeliver"
+
+BUILD_HOST="52.232.127.28"
+BUILD_USER="azure"
+BUILD_AT="/home/azure/hello_world_edeliver/builds"
+
+PRODUCTION_HOSTS="52.232.127.28"
+PRODUCTION_USER="azure"
+DELIVER_TO="/home/azure"
+
+pre_erlang_clean_compile() {
+  status "Installing NPM dependencies"
+  __sync_remote "
+    [ -f ~/.profile ] && source ~/.profile
+    set -e
+
+    cd '$BUILD_AT'
+    npm install $SILENCE
+  "
+
+  status "Building static files"
+  __sync_remote "
+    [ -f ~/.profile ] && source ~/.profile
+    set -e
+
+    cd '$BUILD_AT'
+    mkdir -p priv/static
+    npm run deploy $SILENCE
+  "
+
+  status "Running phoenix.digest"
+  __sync_remote "
+    [ -f ~/.profile ] && source ~/.profile
+    set -e
+
+    cd '$BUILD_AT'
+    APP='$APP' MIX_ENV='$TARGET_MIX_ENV' $MIX_CMD phoenix.digest $SILENCE
+  "
+}
+```
+
+##### `.deliver/config` _File_ Settings Explained
+
+The _important_ bits in the `.deliver/config` file are:
+
++ `APP="hello_world_edeliver"` - the name of your app.
++ `BUILD_HOST="52.232.127.28"` - IP address of the server the _binary_
+of your Phoenix App is going to be built on. For now
+(_in the single server setup_) this is _the same_ as the "Production" IP.
++ `BUILD_USER="azure"` - username used to login to the VM, in this case
+the Azure VM we setup according to the instructions in: <br />
+https://github.com/dwyl/learn-microsoft-azure#2-create-a-virtual-machine
++ `BUILD_AT="/home/azure/hello_world_edeliver/builds"` - the location on the
+"Build" VM where your build will be stored.
++ `PRODUCTION_HOSTS="52.232.127.28"` - same IP address as Build (_for now_).
++ `PRODUCTION_USER="azure"` - same as build server (_for now_)
++ `DELIVER_TO="/home/azure"` - location on the Production server where
+the _compiled_ version of the App will deployed to.
+
+> The `pre_erlang_clean_compile()` function in `.deliver/config`
+defines the "_build steps_" to compile the static assets in the project. <br />
+> The keen observer will notice that we're running `source ~/.profile`
+inside the `pre_erlang_clean_compile()` function.
+We will define the `~/.profile` below!
+(_`~/.profile` is where we will keep environment variables on the VM_!)
+
+
+### X. Login to the (_Remote_) Virtual Machine
+
+> The
+
+
+#### Install "Build Tools" on the Virtual Machine
 
 
 
-
-
-### Install "Build Tools" on the Virtual Machine
 
 
 
