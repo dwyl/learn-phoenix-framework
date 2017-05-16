@@ -431,6 +431,8 @@ Run the following command on your localhost (_**not** logged into the VM_):
 ```
 mix edeliver build release --verbose
 ```
+> Wait for the build to compile ... https://xkcd.com/303/
+
 Provided you followed _all_ the instructions above you should expect to see:
 
 ![release-build-success](https://cloud.githubusercontent.com/assets/194400/26074008/49f18c5e-39a8-11e7-94c4-9e40f59595c6.png)
@@ -485,6 +487,11 @@ Result in browser:
 
 # 2. Automated Continuous Deployment (CD)
 
+See:
++ https://github.com/dwyl/learn-travis
++ https://github.com/dwyl/learn-travis/issues/19
++ example: https://github.com/healthlocker/healthlocker/blob/master/.travis.yml
+
 
 # 3. PostgreSQL
 
@@ -497,14 +504,52 @@ High Availability Cluster _From scratch_, let us know! <br />
 Please leave a comment on: https://github.com/dwyl/learn-postgresql/issues/38
 
 
+The steps are the same as the "Single Server Setup" (_above_)
+except for the following differences:
+1. The app uses a database
+2. use environment variables for database settings in `/config/prod.secret.exs`
+3. ***commit*** `/config/prod.secret.exs` file to github
+because it's using Environment Variables which
+are stored in the `~/.profile` file.
+
+
+sample `/config/prod.secret.exs` file:
+```elixir
+config :pxblog, Pxblog.Endpoint,
+  secret_key_base: System.get_env("SECRETE_KEY_BASE")
+
+# Configure your database
+config :pxblog, Pxblog.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  username: System.get_env("DATABASE_USERNAME"),
+  password: System.get_env("DATABASE_PASSWORD"),
+  database: System.get_env("DATABASE_NAME"),
+  hostname: System.get_env("DATABASE_HOST"),
+  pool_size: 20
+```
+
+Sample `~/.profile` file:
+```sh
+export PORT=4000
+export DATABASE_USERNAME=postgres
+export DATABASE_PASSWORD={yourpassword}
+export DATABASE_HOST=pxblog.postgres.database.azure.com
+export DATABASE_NAME=postgres
+export SECRETE_KEY_BASE={your_super_long_secret_key}
+```
+
 
 # 4. Cluster Setup Server
 
 Thankfully, if you followed the "Single Server Setup" (_above_),
 a lot of this will be _familiar_ to you.
 
-
-
+The difference are
+1. in your `.deliver/config` file
+you will list multiple IP Addresses for the Production Nodes.
+2. Update app configuration so the servers in the cluster
+are aware of each other so that channels work regardless of which
+server/node the client connected to.
 
 
 
@@ -663,3 +708,11 @@ Please see:
 [github.com/dwyl/**learn-heroku**](https://github.com/dwyl/learn-heroku)
 (_beginner's guide to deploying on Heroku_) <br />
 and Phoenix _specific_ [/**heroku-deployment**.md](https://github.com/dwyl/learn-phoenix-framework/blob/master/heroku-deployment.md)
+
+
+Trouble-shooting:
+
+check app running:
+```
+lsof -i :4000
+```
