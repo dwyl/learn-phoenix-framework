@@ -340,7 +340,7 @@ The values in the test config file will overide the default adapter define in yo
 
 - Test the structure format of an email:
 ```elixir
-test "strucuture email ok" do
+test "structure email ok" do
 
   email = Email.send_email("test@email.com", "Welcome", "Hello there")
 
@@ -369,5 +369,12 @@ To do so, you will need to increase your SES Sending Limits.
 
 This can be done by opening a case by following the instructions
 [here](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/request-production-access.html).
-After your case has been approved by Amazon, you will be able to send
+
+After your case has been approved by Amazon, you will need to update your
+SMTP_USERNAME, SMTP_PASSWORD and SES_SERVER. You can get new credentials by
+following the [instructions above](https://github.com/dwyl/learn-phoenix-framework/blob/master/sending-emails.md#amazon-ses-setup).
+You can ensure you have the correct SES_SERVER at the same time, as it is also
+found under SMTP Settings in the Amazon console.
+
+After approval and updating the required sections, you will be able to send
 emails to whoever you want.
