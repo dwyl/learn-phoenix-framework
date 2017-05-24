@@ -151,3 +151,9 @@ end
 
 This highlights the improvement even more :tada: :heart_eyes:! Hope you enjoy
 using `Ecto.Multi`!
+
+### Helpful resources
+
+[Ecto.Multi docs](https://hexdocs.pm/ecto/Ecto.Multi.html)
+[Blog on Multi](http://blog.danielberkompas.com/2016/09/27/ecto-multi-services.html)
+[Production example of Ecto.Multi](https://github.com/healthlocker/healthlocker/blob/master/lib/healthlocker/slam/connect_carer.ex)
