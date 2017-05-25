@@ -1,0 +1,21 @@
+<div>
+  <h2>Password reset</h2>
+  <p>Please enter a new password for your account.</p>
+  <%= form_for @changeset, password_path(@conn, :update, @token), [method: "put"], fn f -> %>
+    <div>
+      <%= label f, :password, "New password" %>
+      <%= text_input f, :password %>
+      ><%= error_tag f, :password %>
+    </div>
+
+    <div>
+      <%= label f, :password_confirmation, "Confirm new password" %>
+      <%= text_input f, :password_confirmation %>
+      ><%= error_tag f, :password_confirmation %>
+    </div>
+
+    <div>
+      <%= submit_primary "Reset password" %>
+    </div>
+  <% end %>
+</div>
