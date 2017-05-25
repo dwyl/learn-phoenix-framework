@@ -1,0 +1,16 @@
+<h1>Save Your Timer/Tasks to your Email</h1>
+
+<%= form_for @changeset, user_path(@conn, :register), fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Opps, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= text_input f, :username, placeholder: "Email Address", class: "form-control" %>
+    <%= error_tag f, :username %>
+  </div>
+
+  <%= submit "Create User", class: "btn btn-primary" %>
+<% end %>

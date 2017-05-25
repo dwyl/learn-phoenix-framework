@@ -31,4 +31,24 @@ defmodule Rumbl.UserController do
         render(conn, "new.html", changeset: changeset)
     end
   end
+
+
+  def register(conn, %{"user" => user_params}) do
+    email = user_params["username"]
+    IO.inspect ">>>>> username: " <> email
+    user_params = Map.put(user_params, "name", 
+      Enum.at(String.split(user_params["username"], "@"), 0))
+    changeset = User.register_changeset(%User{}, user_params)
+    # render(conn, "register.html", changeset: changeset)
+    case Repo.insert(changeset) do
+      {:ok, user} ->
+        conn
+        |> Rumbl.Auth.login(user)
+        |> put_flash(:info, "#{user.name} created!")
+        |> redirect(to: user_path(conn, :index))
+      {:error, changeset} ->
+        IO.inspect changeset
+        render(conn, "register.html", changeset: changeset)
+    end
+  end
 end
