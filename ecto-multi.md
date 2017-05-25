@@ -51,7 +51,7 @@ end
 
 That's one way to do it, but
 
-![ew gif](https://i.giphy.com/gMDKyrWInxOhO.webp)
+![ew gif](https://media.giphy.com/media/8OWujg6evVhsc/giphy.gif)
 
 This is with only *two* `Repo.insert`s, so this gets **really** messy,
 **really** fast. We also have to do *another* database operation if the room
@@ -97,7 +97,7 @@ case Repo.transaction(multi) do
 end
 ```
 
-![beautiful gif](https://i.giphy.com/it6W8D4FfvaPC.webp)
+![beautiful gif](https://media.giphy.com/media/V4Qwt8nNaf2xO/giphy.gif)
 
 Although this may be approximately the same number of lines of code, it is
 much more readable. The possible errors in `Repo.transaction(multi)` tell us
@@ -154,6 +154,6 @@ using `Ecto.Multi`!
 
 ### Helpful resources
 
-[Ecto.Multi docs](https://hexdocs.pm/ecto/Ecto.Multi.html)
-[Blog on Multi](http://blog.danielberkompas.com/2016/09/27/ecto-multi-services.html)
-[Production example of Ecto.Multi](https://github.com/healthlocker/healthlocker/blob/master/lib/healthlocker/slam/connect_carer.ex)
+* [Ecto.Multi docs](https://hexdocs.pm/ecto/Ecto.Multi.html)
+* [Blog on Multi](http://blog.danielberkompas.com/2016/09/27/ecto-multi-services.html)
+* [Production example of Ecto.Multi](https://github.com/healthlocker/healthlocker/blob/master/lib/healthlocker/slam/connect_carer.ex)
