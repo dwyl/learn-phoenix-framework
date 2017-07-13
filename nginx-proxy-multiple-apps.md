@@ -1,5 +1,20 @@
 
-on localhost, shut-down the phoenix app if it's running:
+## Why?
+
+## What?
+
+## Who?
+
+
+## How?
+
+> we have attempted to document our steps in as much detail as possible.
+> If you have any questions or get stuck trying to reproduce this guide,
+please open an issue and we will attempt to help you!
+
+
+
+on `localhost`, shut-down the phoenix app if it's running:
 ```
 mix edeliver stop production
 ```
@@ -35,14 +50,16 @@ iptables: Index of deletion too big.
 (_but it worked!_)
 
 
-for some reason NGINX is not starting
-read the logs:
+### Trouble-shooting NGINX
+
+if for any reason NGINX is not starting read the logs:
 ```
 tail /var/log/nginx/error.log
 ```
+and google for the issue that is reported.
 
 
-## References
+## References & Resources
 
 + http://nginx.org/en/docs/beginners_guide.html
 + https://dennisreimann.de/articles/phoenix-nginx-config.html
@@ -54,4 +71,5 @@ tail /var/log/nginx/error.log
 + https://serverfault.com/questions/654957/nginx-emerg-server-directive-is-not-allowed-here-in-etc-nginx-nginx-conf7
 + https://www.digitalocean.com/community/questions/configure-nginx-for-multiple-subdomains
 + https://www.digitalocean.com/community/questions/how-to-create-subdomain-with-nginx-server-in-the-same-droplet
-+
++ https://askubuntu.com/questions/599888/service-nginx-start-is-ok-but-nginx-not-running
++ https://www.digitalocean.com/community/tutorials/how-to-list-and-delete-iptables-firewall-rules
