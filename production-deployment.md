@@ -274,7 +274,7 @@ pre_erlang_clean_compile() {
   "
 
   status "Building static files"
-  __sync_remote "
+  __sync_remote "-wi
     [ -f ~/.profile ] && source ~/.profile
     set -e
 
@@ -552,7 +552,7 @@ are aware of each other so that channels work regardless of which
 server/node the client connected to.
 
 
-
+<!-- keeping this for now ...
 + SSH to server as root e.g: `ssh root@178.62.57.75`
 (_replace for your IP Address_)
 + `sudo apt-get install git`
@@ -573,7 +573,7 @@ server/node the client connected to.
 + On the _remote_ server,
 Create the file `/home/builder/prod.secret.exs` with this command:
 `mkdir -p /home/builder/ && vi /home/builder/prod.secret.exs`
-
+-->
 
 ### Setup EDeliver Project
 
@@ -641,11 +641,11 @@ sudo iptables -t nat --line-numbers -L
 That should _list_ the routing rules:
 ![iptables-list-rules](https://cloud.githubusercontent.com/assets/194400/26026888/21132ea8-37fc-11e7-8a48-00a0fb2f1746.png)
 
-If you need to _undo_ this command run:
+**Note**: If you need to _undo_ this command run:
 ```
 sudo iptables -t nat -F
 ```
-
+That removes any "forward" rules so port 80 will no longer forward it's traffic to port 4000.
 
 ## Credits
 
