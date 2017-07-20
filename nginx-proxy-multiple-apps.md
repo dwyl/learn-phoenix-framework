@@ -14,7 +14,7 @@ please open an issue and we will attempt to help you!
 
 
 
-on `localhost`, shut-down the phoenix app if it's running:
+On `localhost`, shut-down the phoenix app if it's running:
 ```
 mix edeliver stop production
 ```
@@ -50,6 +50,58 @@ iptables: Index of deletion too big.
 (_but it worked!_)
 
 
+### Create a New NGINX Configuration File for your Domain/App
+
+> Note: I first remove the symbolic link to the default config: `/etc/nginx/sites-available/default` from `/etc/nginx/sites-enabled`
+```
+unlink /etc/nginx/sites-enabled/default
+```
+
+Create a `new` configuration file:
+`/etc/nginx/sites-available/healthlocker_staging`
+(_or whatever you want to call it_):
+and paste the following into it:
+```
+server {
+  listen 80;
+  server_name staging.healthlocker.uk www.staging.healthlocker.uk;
+
+  location / {
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+    proxy_pass http://localhost:4000;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+  }
+}
+```
+save the file contents.
+> Note: this is a _temporary_ configuration, the _actual_ one
+we are using is in `nginx.config`
+
+***test*** that it's valid:
+```
+/usr/sbin/nginx -t -c /etc/nginx/sites-available/healthlocker_staging
+```
+
+
+create a new symlink:
+```
+sudo ln -s /etc/nginx/sites-available/healthlocker_staging /etc/nginx/sites-enabled/
+```
+
+and restart nginx:
+```
+sudo service nginx restart
+```
+works:
+![image](https://user-images.githubusercontent.com/194400/28152142-c981819c-6796-11e7-9a92-8586c2535f5e.png)
+
+
+
+
 ### Trouble-shooting NGINX
 
 if for any reason NGINX is not starting read the logs:
@@ -58,6 +110,19 @@ tail /var/log/nginx/error.log
 ```
 and google for the issue that is reported.
 
+if you see the following error:
+```
+nginx: [emerg] open() "/etc/nginx/sites-available/proxy_params" failed (2: No such file or directory)
+```
+create the file: `/etc/nginx/sites-available/proxy_params`
+and paste the following config:
+```
+proxy_set_header Host $host;
+proxy_set_header X-Real-IP $remote_addr;
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+proxy_headers_hash_max_size: 512;
+```
+found on: https://www.howtoforge.com/how-to-set-up-nginx-as-a-reverse-proxy-for-apache2-on-ubuntu-12.04
 
 ## References & Resources
 
