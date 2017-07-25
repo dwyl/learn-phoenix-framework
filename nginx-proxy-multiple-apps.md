@@ -1,9 +1,19 @@
-
 ## Why?
+
+Resource efficiency<sup>1</sup>.
 
 ## What?
 
+Use the _same_
+[$5 Linode Virtual Machine](https://github.com/dwyl/learn-devops/issues/11)
+to host _several_  (_low traffic_) Phoenix web apps
+(_e.g: small projects, personal blog etc._)
+which have a _much_ faster response time than Heroku.
+
 ## Who?
+
+Anyone who wants to know how to use resources
+(_both compute and cash_) effectively and gain skills in "DevOps".
 
 
 ## How?
@@ -11,7 +21,6 @@
 > we have attempted to document our steps in as much detail as possible.
 > If you have any questions or get stuck trying to reproduce this guide,
 please open an issue and we will attempt to help you!
-
 
 
 On `localhost`, shut-down the phoenix app if it's running:
@@ -138,3 +147,21 @@ found on: https://www.howtoforge.com/how-to-set-up-nginx-as-a-reverse-proxy-for-
 + https://www.digitalocean.com/community/questions/how-to-create-subdomain-with-nginx-server-in-the-same-droplet
 + https://askubuntu.com/questions/599888/service-nginx-start-is-ok-but-nginx-not-running
 + https://www.digitalocean.com/community/tutorials/how-to-list-and-delete-iptables-firewall-rules
+
+
+## <sup>1</sup>Why Not "_Just Use Heroku_"?
+
+Heroku is great for _most_ use-cases.
+But it gets _expensive_ very quickly!
+The moment you start to pay for an app it's $7/month
+(_which may not sound "expensive" on the surface_)
+But it's the _Database_ that's the _expensive_ part!
+
+### Heroku Database _Extortion_
+
+The moment you go beyond the "_hobby_" plan:
+![heroku-hobby-dev](https://user-images.githubusercontent.com/194400/28563894-543876d8-711f-11e7-9b09-cb548e10ee84.png)
+
+![heroku-hobby-basic](https://user-images.githubusercontent.com/194400/28563938-77966842-711f-11e7-9668-eaa694325a79.png)
+
+![heroku-database-pricing](https://user-images.githubusercontent.com/194400/28563258-4e7628d2-711d-11e7-81e0-b3997d9d05ca.png)

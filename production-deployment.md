@@ -475,8 +475,8 @@ so that we can test the production is working.
 `git commit` your changes. then re-deploy:
 
 ```
-mix edeliver build release
-mix edeliver deploy release to production
+mix edeliver build release --verbose
+mix edeliver deploy release to production --verbose
 mix edeliver start production
 ```
 Output from redeploy:
