@@ -71,7 +71,7 @@ than they would simply making smarter tech choices
 and [bobatoo.co.uk/blog/the-10-worst-car-modifications-ever](http://www.bobatoo.co.uk/blog/the-10-worst-car-modifications-ever)
 </sup>
 
-### (Should I _Care_ About) Benchmarks?
+### (Should I _Care_ About) Benchmarks?
 
 _Obviously_, you should run your _own_ benchmarks on your own hardware/cloud
 and make _informed_ decisions based on the _requirements_ of your app/product,
@@ -141,7 +141,7 @@ see: http://brunch.io/docs/why-brunch
 
  > TODO: add a _basic but practical_ tutorial here ... `help wanted`
 
-### _Next_?
+### _Next_?
 
 _Familiarize_ yourself with: http://www.phoenixframework.org/docs/up-and-running
 
