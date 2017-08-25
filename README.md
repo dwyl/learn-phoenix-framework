@@ -137,11 +137,16 @@ see: http://brunch.io/docs/why-brunch
 
 ### Installation
 
-If you've already learned some Elixir and installed Node.js, then the first step to getting started with Phoenix is installation!
+If you've already learned some Elixir and installed Node.js, then
+ the first step to getting started with Phoenix is installation!
 
-The Phoenix documentation is amazing, so we recommend following [the official phoenix installation instructions!](https://hexdocs.pm/phoenix/installation.html)
+The Phoenix documentation is amazing, so we recommend following
+[the official phoenix installation instructions!](https://hexdocs.pm/phoenix/installation.html)
 
-You'll also need to install PostgreSQL, there is a tutorial of how to do so linked in the Phoenix installation guide linked above, but you can also check out our [`learn-postgresql`](https://github.com/dwyl/learn-postgresql) repo for instructions, and raise an issue if you have any trouble!
+You'll also need to install PostgreSQL, there is a tutorial of how to do so
+linked in the Phoenix installation guide linked above, but you can also check
+out our [`learn-postgresql`](https://github.com/dwyl/learn-postgresql) repo
+for instructions, and raise an issue if you have any trouble!
 
 
 
