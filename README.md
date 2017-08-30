@@ -198,6 +198,7 @@ Having [_welcomming_ people](https://github.com/phoenixframework/phoenix/issues/
   + ***openly discuss*** (_your_) _**ideas** for **improvements**_.
   see: https://elixirforum.com/t/phoenix-v1-3-0-rc-0-released/3947 <br />
  <br />
+ 
 1. Phoenix uses the **Elixir** programming language which means your
 app is compiled and run on the ***Erlang Virtual Machine*** "BEAM". <br />
 Erlang is a battle-tested highly fault-tolerant VM used by
