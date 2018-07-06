@@ -10,6 +10,10 @@ So **people** can **_continue using_** the **app**
 Most other languages/frameworks/platforms make you work _really_ hard
 to get this feature, so _not_ using it seems kinda wasteful!
 
+> _**Note**: If you **don't need** "**Hot-code Upgrades**" and just want
+a way of deploying your Phoenix app to your own infrastructure,
+see:_
+[https://github.com/dwyl/**learn-devops**](https://github.com/dwyl/learn-devops/blob/master/nodejs-digital-ocean-centos-dokku.md)
 
 ## What?
 
@@ -60,9 +64,8 @@ similar to section 1. (_above_) but with Travis-CI doing the deployment for you!
 [_**Millions of Concurrent Connections**_](http://www.phoenixframework.org/blog/the-road-to-2-million-websocket-connections)
 with **_Zero_ Downtime** Delpoys/Updates!
 
+
 # 1. Single Server "Direct" Deployment
-
-
 
 
 For the purposes of this guide I will be using Microsoft Azure
@@ -396,7 +399,7 @@ In our case we are going to stick with the default and use `4000`.
 Run the following command to append the line
 `export PORT=4000` to your `~/.profile` file:
 ```
-"echo export PORT=4000" >> ~/.profile
+echo "export PORT=4000" >> ~/.profile
 ```
 Then run the following command to ensure that `~/.profile` file is _loaded_:
 ```

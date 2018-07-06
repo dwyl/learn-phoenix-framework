@@ -2,6 +2,16 @@
 
 Resource efficiency<sup>1</sup>.
 
+> _**Note**: in "**Production**" we recommend running only **one App per VPS**.
+This means a **minimum** of $5/month. If your project is not "worth" $5/month,
+it's probably not worth your time building it.
+For simple "demo" apps that don't need "production" latency
+or "**Hot-code Upgrades**",
+consider using a Dokku PaaS (it's like a "free Heroku").
+see:_
+[https://github.com/dwyl/**learn-devops**](https://github.com/dwyl/learn-devops/blob/master/nodejs-digital-ocean-centos-dokku.md)
+
+
 ## What?
 
 Use the _same_
@@ -9,6 +19,7 @@ Use the _same_
 to host _several_  (_low traffic_) Phoenix web apps
 (_e.g: small projects, personal blog etc._)
 which have a _much_ faster response time than Heroku.
+
 
 ## Who?
 
@@ -147,21 +158,3 @@ found on: https://www.howtoforge.com/how-to-set-up-nginx-as-a-reverse-proxy-for-
 + https://www.digitalocean.com/community/questions/how-to-create-subdomain-with-nginx-server-in-the-same-droplet
 + https://askubuntu.com/questions/599888/service-nginx-start-is-ok-but-nginx-not-running
 + https://www.digitalocean.com/community/tutorials/how-to-list-and-delete-iptables-firewall-rules
-
-
-## <sup>1</sup>Why Not "_Just Use Heroku_"?
-
-Heroku is great for _most_ use-cases.
-But it gets _expensive_ very quickly!
-The moment you start to pay for an app it's $7/month
-(_which may not sound "expensive" on the surface_)
-But it's the _Database_ that's the _expensive_ part!
-
-### Heroku Database _Extortion_
-
-The moment you go beyond the "_hobby_" plan:
-![heroku-hobby-dev](https://user-images.githubusercontent.com/194400/28563894-543876d8-711f-11e7-9b09-cb548e10ee84.png)
-
-![heroku-hobby-basic](https://user-images.githubusercontent.com/194400/28563938-77966842-711f-11e7-9668-eaa694325a79.png)
-
-![heroku-database-pricing](https://user-images.githubusercontent.com/194400/28563258-4e7628d2-711d-11e7-81e0-b3997d9d05ca.png)
