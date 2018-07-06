@@ -10,7 +10,11 @@ or "**Hot-code Upgrades**",
 consider using a Dokku PaaS (it's like a "free Heroku").
 see:_
 [https://github.com/dwyl/**learn-devops**](https://github.com/dwyl/learn-devops/blob/master/nodejs-digital-ocean-centos-dokku.md)
-
+<br />
+> _Also, if you need a Wildcard SSL Certificate,
+there is now an **easy** and **FREE** way of getting one with LetsEncrypt!
+see:
+[**letsencrypt-wildcard-certificate**.md](https://github.com/dwyl/learn-devops/blob/master/letsencrypt-wildcard-certificate.md)
 
 ## What?
 
