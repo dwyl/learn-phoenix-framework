@@ -23,6 +23,7 @@ But if we go by what is "_popular_" we would
 still be riding horses (_and carts_) everywhere
 and no _progress_ would be made. <br />
 
+<!--
 Phoenix is like having a
 [***jetpack***](https://youtu.be/H0ftAwlAB9o) (_with **unlimited free environmentally-friendly fuel**_!!); <br />
 it gets you (_your app_) to where you need to be ***so much faster***! <br />
@@ -32,15 +33,26 @@ _**you will feel** like you're **freakin' Iron** ~~Man~~ **Person**!_
 ![iron-man-flying](https://cloud.githubusercontent.com/assets/194400/22628358/9ca42c58-ebca-11e6-8729-bc0103284312.jpg)
 You won't want to "_walk_" anywhere (_use a lesser means of web development_)
 _ever again_!
+-->
 
 > **Note**: **all** the reasons "***Why***"
 for ***Elixir*** _also apply_ to ***Phoenix***! <br />
 check them out: https://github.com/dwyl/learn-elixir#why <br />
 
+
 ## _What_?
 
 A web application framework ***without compromise***! <br />
 
+### Developer Joy
+
+The biggest "_constraint_" in any technology project is _people_.
+An "Entrepreneur"/"Founder" or "Product Owner" can have all the _good ideas_
+in the world, if they are _unable_ to convert idea into _reality_,
+it's _meaningless_.
+
+
+<!-- commenting this out because I think it's too "hyperbolic" ...
 ### Metaphor
 
 You can spend ages (_and **mountains** of **money**_)
@@ -70,6 +82,7 @@ than they would simply making smarter tech choices
 [ridelust.com/30-custom-cars-from-around-the-world](http://www.ridelust.com/30-custom-cars-from-around-the-world)
 and [bobatoo.co.uk/blog/the-10-worst-car-modifications-ever](http://www.bobatoo.co.uk/blog/the-10-worst-car-modifications-ever)
 </sup>
+-->
 
 ### (Should I _Care_ About) Benchmarks?
 
@@ -78,6 +91,7 @@ and make _informed_ decisions based on the _requirements_ of your app/product,
 but ... when we _read_ the stats for how many ***concurrent users***
 a Phoenix App can handle (_with live WebSocket connections_)
 we were _blown_ away!
+It means we can build our real-time app(s) with 90% fewer resources.
 
 #### Performance Highlights
 
@@ -103,6 +117,41 @@ can gain a ***competitive advantage*** on **cost**.
 something _way better_ for your _next_ project,
 look no further than Phoenix! <br />
 > Read more: http://www.phoenixframework.org
+
+
+## _Who_?
+
+_Many_ people/teams/companies are _already_
+using Erlang/Elixir and Phoenix and seeing phenomenal results! <br />
+Including: Adobe, Pinterest, Discord (Gamer Chat App),
+Groupon (Fave), Lonely Planet, Brightcove, Slack ...
+See: https://github.com/doomspork/elixir-companies
+
+### Who _Should_ Learn Phoenix?
+
++ People who want an _easy_ way of
+building an app with all the modern conveniences of "generators",
+built-in Database interface ("ORM") and ***Firstclass WebSockets***
+for "real-time" while getting **_legendary_ reliability**.
++ Teams who need the developer productivity or Ruby-on-Rails or Django,
+but want less "magic" (_i.e. want to **understand** how everything works!_).
++ Companies who want to spend 90% less on both developer
+and infrastructure costs
+so you can serve more people with fewer resources.
+
+### Who Should _NOT_ Learn Phoenix?
+
++ Anyone who needs to use the "_most popular_" framework or language
+(_for whatever reason_).
++ Companies who already have lots of legacy Java/PHP/etc.
+and cannot invest the time to learn/use something new.
++ Developers who want "_job security_" bug-fixing unreliable code.
+
+<!--
+> `help wanted` augmenting this section ...
+discuss: https://github.com/dwyl/learn-phoenix-framework/issues/14
+-->
+
 
 ## _How_?
 
@@ -135,35 +184,34 @@ You don't need to _know_ how to use Node to use Phoenix.
 the short answer is: Simplicity & Speed!
 see: http://brunch.io/docs/why-brunch
 
-
-
+<!--
 ### "Hello World" Example (_5 Mins_)
 
  > TODO: add a _basic but practical_ tutorial here ... `help wanted`
+-->
 
 ### _Next_?
 
 _Familiarize_ yourself with: http://www.phoenixframework.org/docs/up-and-running
 
-Meanwhile, we recommend that people buy (_or **borrow**_) the book: <br />
+### Chat Example
+
+Once you have phoenix installed
+and you have read _official_ "up and running" guide, <br />
+Goto:
+[https://github.com/dwyl/**phoenix-chat-example**](https://github.com/dwyl/phoenix-chat-example)
+
+
+
+### Book?
+
+We _recommend_ that people buy (_or **borrow**_) @chrismccord's book: <br />
 ![phoenix](https://cloud.githubusercontent.com/assets/194400/22609006/33e03f96-ea57-11e6-97b3-f0606998400d.png) <br />
 see: https://pragprog.com/book/phoenix/programming-phoenix <br />
-it's written by @chrismccord who _created_ Phoenix.  <br />
+it's written by  who _created_ Phoenix.  <br />
 (_i.e: it's the obvious choice for how to learn Phoenix!_)
 
 <br /> <br /> <br />
-
-## _Who_?
-
-_Many_ people/teams/companies are _already_
-using Erlang/Elixir and Phoenix and seeing phenomenal results! <br />
-Including: Pinterest, Groupon (Fave), Lonely Planet, Brightcove ...
-See: https://github.com/doomspork/elixir-companies
-
-### Who _Should_ Learn Phoenix?
-
-> `help wanted` augmenting this section ...
-discuss: https://github.com/dwyl/learn-phoenix-framework/issues/14
 
 
 ## Resources
