@@ -192,7 +192,7 @@ see: http://brunch.io/docs/why-brunch
 
 ### _Next_?
 
-_Familiarize_ yourself with: http://www.phoenixframework.org/docs/up-and-running
+_Familiarize_ yourself with: https://hexdocs.pm/phoenix/up_and_running.html
 
 ### Chat Example
 
