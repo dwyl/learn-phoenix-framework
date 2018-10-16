@@ -157,8 +157,6 @@ discuss: https://github.com/dwyl/learn-phoenix-framework/issues/14
 
 ### Assumptions / Pre-Requisites?
 
-> Developer Checklist?
-
 #### Elixir
 
 You _cannot_ build a Phoenix App without knowing Elixir. <br />
@@ -178,11 +176,16 @@ _Specifically_ you should focus on learning the Elixir "Basics":
 Phoenix uses Node.js (_specifically_ http://brunch.io) to compile
 assets like JavaScript and CSS files. <br />
 Simply ensure you have Node.js _installed_. <br />
-You don't need to _know_ how to use Node to use Phoenix.
+While a _basic_ understanding _can_ be useful at times,
+you don't _need_ to _know_ how to use Node to use Phoenix.
 
 > if you're curious _why_ they chose Brunch.io over "_alternatives_", <br />
 the short answer is: Simplicity & Speed!
 see: http://brunch.io/docs/why-brunch
+> **Note**: Phoenix v1.4 (_unreleased at the time of writing_)
+uses WebPack for asset compilation,
+see: [CHANGELOG.md](https://github.com/phoenixframework/phoenix/blob/0bdb5b001915e437c2d2cf1b77a1c532ce45cde2/CHANGELOG.md#phxnew-installer)
+<!-- update this once v1.4 is released! --> 
 
 <!--
 ### "Hello World" Example (_5 Mins_)
