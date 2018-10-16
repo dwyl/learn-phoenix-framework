@@ -196,22 +196,37 @@ see: [CHANGELOG.md](https://github.com/phoenixframework/phoenix/blob/0bdb5b00191
 
 _Familiarize_ yourself with: http://www.phoenixframework.org/docs/up-and-running
 
-### _Practical_ Examples!
+### _Practical_ Examples?
 
+Once you have phoenix installed
+and you have read _official_ "up and running" guide, <br />
 
+We have created the following _beginner-friendly_ examples
+including test and deployment:
 
++ **Chat** (_realtime UI/UX using WebSockets_):
+[https://github.com/dwyl/**phoenix-chat-example**](https://github.com/dwyl/phoenix-chat-example)
++ **Encryption** (_security_):
+[https://github.com/dwyl/**phoenix-ecto-encryption-example**](https://github.com/dwyl/phoenix-ecto-encryption-example)
++ **Append-only Log** (_storing data_):
+[https://github.com/dwyl/**phoenix-ecto-append-only-log-example**](https://github.com/dwyl/phoenix-ecto-append-only-log-example)
 
 
 
 ### Book?
 
-We _recommend_ that people buy (_or **borrow**_) @chrismccord's book: <br />
+We _recommend_ that people ***buy*** (_or borrow_)
+[@chrismccord](https://github.com/chrismccord)'s book:
+"Programming Phoenix"<br />
 see: https://pragprog.com/book/phoenix14/programming-phoenix-1-4 <br />
 [![phoenix-book-screenshot](https://user-images.githubusercontent.com/194400/47034955-afc0f180-d170-11e8-91b3-e12e4c8eccf5.png "Pragmatic Press - Phoenix 1.4 Book")](https://pragprog.com/book/phoenix14/programming-phoenix-1-4)
 <br />
-Chris _created_ Phoenix, José Valim created Elixir
-and Bruce Tate is ultra-experienced technical author.  <br />
-(_i.e: it's the obvious choice for how to learn Phoenix!_)
+The authors are _individually **impressive**_ and _collectively_
+they _comprehenisively_ cover Phoenix like nobody else _can_!
+Chris _created_ Phoenix, José created Elixir
+and Bruce is ultra-experienced technical author
+with _many_ successful books to his name!  <br />
+(_i.e: the book is the obvious choice for how to learn Phoenix!_)
 
 <br />
 
