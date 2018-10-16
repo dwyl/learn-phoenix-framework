@@ -194,15 +194,15 @@ see: [CHANGELOG.md](https://github.com/phoenixframework/phoenix/blob/0bdb5b00191
 
 ### _Next_?
 
-_Familiarize_ yourself with: http://www.phoenixframework.org/docs/up-and-running
+_Familiarize_ yourself with the "Up and Running" (_official_) guide:
+https://hexdocs.pm/phoenix/up_and_running.html#content
+![up-and-running](https://user-images.githubusercontent.com/194400/47036724-fca6c700-d174-11e8-9cd8-26f0ef0147e8.png "Phoenix Up and Running Beginner Guide")
 
 ### _Practical_ Examples?
 
 Once you have phoenix installed
-and you have read _official_ "up and running" guide, <br />
-
-We have created the following _beginner-friendly_ examples
-including test and deployment:
+and followed the _official_ "up and running" guide, <br />
+come back and try these **_beginner-friendly_ examples**:
 
 + **Chat** (_realtime UI/UX using WebSockets_):
 [https://github.com/dwyl/**phoenix-chat-example**](https://github.com/dwyl/phoenix-chat-example)
