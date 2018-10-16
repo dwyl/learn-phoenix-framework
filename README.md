@@ -231,11 +231,6 @@ with _many_ successful books to his name!  <br />
 <br />
 
 
-## Resources
-
-+ Elixir vs Ruby Showdown - Phoenix vs Rails: https://littlelines.com/blog/2014/07/08/elixir-vs-ruby-showdown-phoenix-vs-rails
-+ Benchmark: https://github.com/mroth/phoenix-showdown
-
 ### Video Intro by José Valim (_Creator of Elixir_)
 
 [![Jose Valim - Phoenix a web framework for the new web](https://cloud.githubusercontent.com/assets/194400/22608108/e34aefbc-ea52-11e6-8694-9ac13c36db47.png)](https://youtu.be/MD3P7Qan3pw "Click to watch!") <br />
@@ -243,6 +238,13 @@ https://youtu.be/MD3P7Qan3pw
 
 [![ElixirConf 2016 - Keynote by José Valim](https://cloud.githubusercontent.com/assets/194400/22608199/743b69d4-ea53-11e6-8153-e6655fc64453.png)](https://youtu.be/srtMWzyqdp8 "Click to watch!") <br />
 https://youtu.be/srtMWzyqdp8
+
+<br />
+
+## Resources
+
++ Elixir vs Ruby Showdown - Phoenix vs Rails: https://littlelines.com/blog/2014/07/08/elixir-vs-ruby-showdown-phoenix-vs-rails
++ Benchmark: https://github.com/mroth/phoenix-showdown
 
 <br /><br /><br />
 
