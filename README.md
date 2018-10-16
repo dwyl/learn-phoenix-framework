@@ -208,7 +208,7 @@ including test and deployment:
 [https://github.com/dwyl/**phoenix-chat-example**](https://github.com/dwyl/phoenix-chat-example)
 + **Encryption** (_security_):
 [https://github.com/dwyl/**phoenix-ecto-encryption-example**](https://github.com/dwyl/phoenix-ecto-encryption-example)
-+ **Append-only Log** (_storing data_):
++ **Append-only Log** (_how to store your App's data_):
 [https://github.com/dwyl/**phoenix-ecto-append-only-log-example**](https://github.com/dwyl/phoenix-ecto-append-only-log-example)
 
 
