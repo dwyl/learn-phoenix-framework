@@ -84,7 +84,7 @@ and [bobatoo.co.uk/blog/the-10-worst-car-modifications-ever](http://www.bobatoo.
 </sup>
 -->
 
-### (Should I _Care_ About) Benchmarks?
+### (Should I _Care_ About) Benchmarks?
 
 _Obviously_, you should run your _own_ benchmarks on your own hardware/cloud
 and make _informed_ decisions based on the _requirements_ of your app/product,
@@ -192,7 +192,7 @@ uses WebPack for asset compilation,
 see: [CHANGELOG.md](https://github.com/phoenixframework/phoenix/blob/0bdb5b001915e437c2d2cf1b77a1c532ce45cde2/CHANGELOG.md#phxnew-installer)
 <!-- update this once v1.4 is released! -->
 
-### _Next_?
+### _Next_?
 
 _Familiarize_ yourself with the "Up and Running" (_official_) guide:
 https://hexdocs.pm/phoenix/up_and_running.html#content
@@ -265,6 +265,7 @@ Having [_welcomming_ people](https://github.com/phoenixframework/phoenix/issues/
   + ***openly discuss*** (_your_) _**ideas** for **improvements**_.
   see: https://elixirforum.com/t/phoenix-v1-3-0-rc-0-released/3947 <br />
  <br />
+
 1. Phoenix uses the **Elixir** programming language which means your
 app is compiled and run on the ***Erlang Virtual Machine*** "BEAM". <br />
 Erlang is a battle-tested highly fault-tolerant VM used by
