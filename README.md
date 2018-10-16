@@ -160,8 +160,12 @@ discuss: https://github.com/dwyl/learn-phoenix-framework/issues/14
 #### Elixir
 
 You _cannot_ build a Phoenix App without knowing Elixir. <br />
-So if you are new to Elixir, "star" (_bookmark_) `this` repo <br />
-and then go to: [github.com/dwyl/**learn-elixir**](https://github.com/dwyl/learn-elixir)
+If you are new to Elixir, "star" (_bookmark_) `this` repo
+(_so you can return to it tomorrow_)<br />
+and then go to:
+[github.com/dwyl/**learn-elixir**](https://github.com/dwyl/learn-elixir)
+learn elixir until you feel like you understand the syntax,
+then come back and learn Phoenix!
 
 _Specifically_ you should focus on learning the Elixir "Basics":
 + types of data
@@ -175,46 +179,41 @@ _Specifically_ you should focus on learning the Elixir "Basics":
 
 Phoenix uses Node.js (_specifically_ http://brunch.io) to compile
 assets like JavaScript and CSS files. <br />
-Simply ensure you have Node.js _installed_. <br />
-While a _basic_ understanding _can_ be useful at times,
+Simply ensure you have Node.js _installed_: https://nodejs.org <br />
+
+While a _basic_ understanding of JavaScript _can_ be useful at times,
 you don't _need_ to _know_ how to use Node to use Phoenix.
 
-> if you're curious _why_ they chose Brunch.io over "_alternatives_", <br />
+> If you're curious _why_ they chose Brunch.io over "_alternatives_", <br />
 the short answer is: Simplicity & Speed!
-see: http://brunch.io/docs/why-brunch
+see: http://brunch.io/docs/why-brunch <br />
 > **Note**: Phoenix v1.4 (_unreleased at the time of writing_)
 uses WebPack for asset compilation,
 see: [CHANGELOG.md](https://github.com/phoenixframework/phoenix/blob/0bdb5b001915e437c2d2cf1b77a1c532ce45cde2/CHANGELOG.md#phxnew-installer)
-<!-- update this once v1.4 is released! --> 
-
-<!--
-### "Hello World" Example (_5 Mins_)
-
- > TODO: add a _basic but practical_ tutorial here ... `help wanted`
--->
+<!-- update this once v1.4 is released! -->
 
 ### _Next_?
 
 _Familiarize_ yourself with: http://www.phoenixframework.org/docs/up-and-running
 
-### Chat Example
+### _Practical_ Examples!
 
-Once you have phoenix installed
-and you have read _official_ "up and running" guide, <br />
-Goto:
-[https://github.com/dwyl/**phoenix-chat-example**](https://github.com/dwyl/phoenix-chat-example)
+
+
 
 
 
 ### Book?
 
 We _recommend_ that people buy (_or **borrow**_) @chrismccord's book: <br />
-![phoenix](https://cloud.githubusercontent.com/assets/194400/22609006/33e03f96-ea57-11e6-97b3-f0606998400d.png) <br />
-see: https://pragprog.com/book/phoenix/programming-phoenix <br />
-it's written by  who _created_ Phoenix.  <br />
+see: https://pragprog.com/book/phoenix14/programming-phoenix-1-4 <br />
+[![phoenix-book-screenshot](https://user-images.githubusercontent.com/194400/47034955-afc0f180-d170-11e8-91b3-e12e4c8eccf5.png "Pragmatic Press - Phoenix 1.4 Book")](https://pragprog.com/book/phoenix14/programming-phoenix-1-4)
+<br />
+Chris _created_ Phoenix, José Valim created Elixir
+and Bruce Tate is ultra-experienced technical author.  <br />
 (_i.e: it's the obvious choice for how to learn Phoenix!_)
 
-<br /> <br /> <br />
+<br />
 
 
 ## Resources
