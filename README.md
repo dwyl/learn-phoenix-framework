@@ -177,9 +177,24 @@ _Specifically_ you should focus on learning the Elixir "Basics":
 
 #### Node.js
 
-Phoenix uses Node.js (_specifically_ http://brunch.io) to compile
-assets like JavaScript and CSS files. <br />
-Simply ensure you have Node.js _installed_: https://nodejs.org <br />
+Phoenix uses Node.js to compile
+assets like JavaScript and CSS files (_using_ [Webpack](https://webpack.js.org/)). <br />
+Simply ensure you have Node.js _installed_. https://nodejs.org <br />
+You don't need to know Node to use Phoenix.
+
+### Installation
+
+If you've already learned some Elixir and installed Node.js, then
+ the first step to getting started with Phoenix is installation!
+
+The Phoenix documentation is amazing, so we recommend following
+[the official phoenix installation instructions!](https://hexdocs.pm/phoenix/installation.html)
+
+You'll also need to install PostgreSQL, there is a tutorial of how to do so
+linked in the Phoenix installation guide linked above, but you can also check
+out our [`learn-postgresql`](https://github.com/dwyl/learn-postgresql) repo
+for instructions, and raise an issue if you have any trouble!
+
 
 While a _basic_ understanding of JavaScript _can_ be useful at times,
 you don't _need_ to _know_ how to use Node to use Phoenix.
