@@ -378,3 +378,31 @@ found under SMTP Settings in the Amazon console.
 
 After approval and updating the required sections, you will be able to send
 emails to whoever you want.
+
+### Adding Html to an email
+
+If you want to style your emails you need to be able to add html and then use
+inline css. To do this simply use `html_body()` instead of `text_body()`. Then
+add your html as your argument.
+
+If you've got lots of html to add you may prefer to add a html template. To do
+this use `html_body()` but instead of using your html as your argument you want
+to provide your file path within `EEx.eval_file()` so it would end up looking
+something like this:
+
+```
+def send_html_email(to_email_address, subject) do
+  new_email()
+  # also needs to be a validated email
+  |> from("example@dwyl.com")
+  |> to(to_email_address)
+  |> subject(subject)
+  |> html_body(
+    EEx.eval_file(
+      "<your-file-path>"
+    )
+  )
+end
+```
+
+For a full working example of this see: https://github.com/dwyl/auth.
