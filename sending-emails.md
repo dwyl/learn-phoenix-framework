@@ -406,3 +406,48 @@ end
 ```
 
 For a full working example of this see: https://github.com/dwyl/auth.
+
+#### Making a responsive email template
+
+It's important to consider how your email styling will look on different devices
+and on different applications. Unfortunately there's not a one-size-fits-all
+solution for styling email templates everywhere. There are three key approaches
+you can take:
+
+1. Use a design/layout that doesn't need altering for different screens
+The most simple solution is style things in a way that is naturally flexible
+or not impacted by screen resizing. E.g. having a simple layout that does not
+need revising on different screen sizes (tables are where things tend to get
+tricky on different screens) and using `rem` or `%` rather than `px` as a unit.
+This is a template on desktop and mobile that works for both screen sizes without
+any special measures:
+
+![desktop-template](https://user-images.githubusercontent.com/16775804/54979593-73a18080-4f9b-11e9-9d4a-7603ede1a880.png)
+![mobile-template](https://user-images.githubusercontent.com/16775804/54979639-96cc3000-4f9b-11e9-8a11-6263e29cc85b.png)
+
+To see the code of this template see: https://github.com/dwyl/auth.
+
+2. Implement the responsive styling methods needed for each device so your email
+looks good on all kinds of apps:
+
+Given the title of this section, this might seem like the obvious answer someone
+might hope for. Unfortunately this implementation is the most complex which is
+why the other options have been given as alternatives! The complexity is due to
+the fact that certain styling methods such as setting `max-width` and media
+queries are not supported by all apps. For example, the Gmail app (which is more
+popular than the default mail app on Android) doesn’t support media queries.
+Other sources such as Microsoft Outlook and IE also need their own work arounds
+with conditional statements such as `<!--[if (gte mso 9)|(IE)]>`. To cover all
+of these scenarios (and more) for making your own responsive template follow this
+comprehensive tutorial:
+https://webdesign.tutsplus.com/tutorials/creating-a-future-proof-responsive-email-without-media-queries--cms-23919
+
+The tutorial follows the '*fluid hybrid*' method, also referred to as the
+*spongy method* of email development.
+
+> The fluid part refers to the fact that we use lots of percentages. The hybrid
+part is because we also use max-width to restrict some of our elements on larger
+screens
+
+3. Use free responsive pre-made templates available from sites such as this one:
+https://tedgoas.github.io/Cerberus/
