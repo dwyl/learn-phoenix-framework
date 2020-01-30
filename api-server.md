@@ -1,5 +1,18 @@
 # Create an API server with Phoenix
 
+## What
+
+The request/response steps between a client and the API server are:
+
+- The client send request with header containing `Accept: application/json`
+- The API server receive the request and knows from the headers 
+  that the client is expecting some json data
+  and returns the http response with `Content-type: application/json` in the header
+  and the json data in the body of the response
+- The client receive the response and knows from the headers that the body type of data is json
+
+We will create an API which will allow people to create and complete tasks.
+
 ## Create a new Phoenix project
 
 By default phoenix uses webpack for managing assets (e.g. css, images, js)
@@ -41,4 +54,19 @@ A schema will map the data from Postgres to an Elixir struct.
 
 We can use the `mix phx.gen.json` to create the structure for managing tasks.
 Run `mix help phx.gen.json` to get an example on how this command works.
+
+To create manage our tasks we can run the following command:
+
+```sh
+mix phx.gen.json Todos Task tasks text:string complete:boolean
+```
+
+where
+ - Todos is a Phoenix context. The context manage how the data for the tasks. see https://hexdocs.pm/phoenix/contexts.html
+ - Task is the Ecto schema
+ - tasks the table name in Postgres
+ - text and complete the database fields
+
+We can now run `mix ecto.migrate` which will create the tasks table.
+
 
