@@ -69,4 +69,40 @@ where
 
 We can now run `mix ecto.migrate` which will create the tasks table.
 
+The last steps before being able to use the new task controller
+is to define the endpoints in `lib/my_app_web/router.ex`:
 
+```ex
+  pipeline :api do
+    plug :accepts, ["json"]
+  end
+
+  scope "/api", MyAppWeb do
+    pipe_through :api
+    resources "/tasks", TaskController, except: [:new, :edit]) # adding the new endpoints
+    # new and edit action are not necessary are they are used for html view forms
+  end
+```
+
+The `resources` function will add the CRUD endpoints for task.
+Note that the scope `/api` is using the `:api` pipeline.
+This means that the endpoints define in `/api` needs to have the
+requests' headers containing the `Accept: appication/json` value.
+
+We can now verify that all tests are passing.
+
+## Deployment
+
+### Manage Cross Origin Resource Sharing
+
+To allow any domain names to send requests to the API,
+we need to let the server allow these request.
+By default only the requests from the same domain name as the server are allowed.
+
+We can use the [cors_plug](https://hex.pm/packages/cors_plug) package to
+update the `:api` pipeline to allow other domain names.
+
+- Add the dependency `{:cors_plug, "~> 2.0"}` to `mix.exs` file and run `mix deps.get`
+- Add in `endpoint.ex` file `plug CORSPlug, origin: ["*"]`
+
+see https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
