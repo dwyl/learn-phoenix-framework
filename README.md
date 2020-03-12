@@ -219,6 +219,8 @@ Once you have phoenix installed
 and followed the _official_ "up and running" guide, <br />
 come back and try these **_beginner-friendly_ examples**:
 
++ **Counter** (_realtime shared counter using Phoenix LiveView_): 
+[https://github.com/dwyl/**phoenix-liveview-counter-tutorial**](https://github.com/dwyl/phoenix-liveview-counter-tutorial)
 + **Chat** (_realtime UI/UX using WebSockets_):
 [https://github.com/dwyl/**phoenix-chat-example**](https://github.com/dwyl/phoenix-chat-example)
 + **Encryption** (_security_):
