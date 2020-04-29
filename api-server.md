@@ -1,106 +1,130 @@
-# Create an API server with Phoenix
+# API with Phoenix
 
 ## What
 
-The request/response steps between a client and the API server are:
+A step by step guide on how to create a simple JSON API with Phoenix.
+The built API will provide url endpoints for retreiving quotes.
 
-- The client send request with header containing `Accept: application/json`
-- The API server receive the request and knows from the headers 
-  that the client is expecting some json data
-  and returns the http response with `Content-type: application/json` in the header
-  and the json data in the body of the response
-- The client receive the response and knows from the headers that the body type of data is json
+## How
 
-We will create an API which will allow people to create and complete tasks.
+### Initialise the Phoenix application
 
-## Create a new Phoenix project
+The project is created with the `mix phx.new` command.
+The application only needs to return json responses.
+So webpack (used for managing css image and js assets)
+and html views and templates are not required.
 
-By default phoenix uses webpack for managing assets (e.g. css, images, js)
-and create html view and template files.
-
-So the first thing we need to do when creating a new phoenix project
-for serving only a json api is to use the `--no-webpack` and `--no-html` options:
+Adding the `--no-webpack` and `--no-html` flags to the command
+will remove all the unecessay code (to see all the options available run `mix phx.new`).
+For example lets' create the `quote` application:
 
 ```sh
-mix phx.new my-app --app my_app --no-webpack --no-html
+mix phx.new quote --no-webpack --no-html
 ```
 
-Next to save data send to our API we will use the Postgres database.
-We need to make sure the configuration to connect the server to Postgres
-is correct. The files `confg/dev.exs`, `config/test.exs` contains the Postgres configuration (for production the configuration must use environnment variables) 
+### Create endpoint
 
-```exs
-config :my_app, MyApp.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "my_app_dev",
-  hostname: "localhost",
-  show_sensitive_data_on_connection_error: true,
-  pool_size: 10
-```
+Now that the structure of the API server has been created
+we need to create a route, controller and view
+which will retreive the quotes.
 
-See the [learn-postgres](https://github.com/dwyl/learn-postgresql/) repository
-if you have any questions on how to install Postgres on your machine.
-See also how to use [Docker with Postgres](https://github.com/dwyl/learn-postgresql/issues/55).
+We could use a generator command to create automatically
+these files, e.g. `mix phx.gen.json 
+However because we are creating only one endpoint for now
+we can create these files manually:
 
-We can now run `mix ecto.create` to create the database for the application.
-At this stage we can also make sure that the tests created by Phoenix are passing, run `mix test`.
+Let's first update `lib/quote_web/route.ex` file to define a new endpoint:
 
-## Create a new schema
+```elixir
+defmodule QuoteWeb.Router do
+  use QuoteWeb, :router
 
-The application will allow the user to save tasks.
-To tell the database how to save the tasks we need to create a new schema.
-A schema will map the data from Postgres to an Elixir struct.
-
-We can use the `mix phx.gen.json` to create the structure for managing tasks.
-Run `mix help phx.gen.json` to get an example on how this command works.
-
-To create manage our tasks we can run the following command:
-
-```sh
-mix phx.gen.json Todos Task tasks text:string complete:boolean
-```
-
-where
- - Todos is a Phoenix context. The context manage how the data for the tasks. see https://hexdocs.pm/phoenix/contexts.html
- - Task is the Ecto schema
- - tasks the table name in Postgres
- - text and complete the database fields
-
-We can now run `mix ecto.migrate` which will create the tasks table.
-
-The last steps before being able to use the new task controller
-is to define the endpoints in `lib/my_app_web/router.ex`:
-
-```ex
   pipeline :api do
     plug :accepts, ["json"]
   end
 
-  scope "/api", MyAppWeb do
+  scope "/api", QuoteWeb do
     pipe_through :api
-    resources "/tasks", TaskController, except: [:new, :edit]) # adding the new endpoints
-    # new and edit action are not necessary are they are used for html view forms
+    get "/quotes", QuoteController, :index # define new endpoint
   end
+end
 ```
 
-The `resources` function will add the CRUD endpoints for task.
-Note that the scope `/api` is using the `:api` pipeline.
-This means that the endpoints define in `/api` needs to have the
-requests' headers containing the `Accept: appication/json` value.
+This create the GET `/api/quotes` endpoint.
+Notice the pipeline `:api` which will check the http requests send
+by the client contain the 
+[http header `Accept: application/json`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept)
 
-We can now verify that all tests are passing.
+Then we can create the `QuoteController` at `lib/quote_web/controllers/quote_controller.ex`:
 
-## Deployment
+```elixir
+defmodule QuoteWeb.QuoteController do
+  use QuoteWeb, :controller
+
+  def index(conn, _params) do
+    # see https://github.com/dwyl/quotes
+    quotes = [
+      %{
+        author: "Thomas Edison",
+        text: "If we did the things we are capable of, we would astound ourselves."
+      },
+      %{
+        author: "Thomas Edison",
+        text:
+          "Opportunity is missed by most because it is dressed in overalls and looks like work."
+      }
+    ]
+
+    render(conn, "index.json", quotes: quotes)
+  end
+end
+```
+
+We have kept the `index` action simple for now and hardcoded the list of quotes.
+The render function is called with the "index.json" view and the list of quotes.
+
+Let's create the `index.json` view at `lib/quote_web/views/quote_view.ex`:
+
+```elixir
+defmodule QuoteWeb.QuoteView do
+  use QuoteWeb, :view
+
+  def render("index.json", %{quotes: quotes}) do
+    quotes
+  end
+end
+```
+
+The view is also kept simple and is just returning directly the list of quotes.
+
+We can now try our API, run the server with `mix phx.server` and
+access the url http://localhost:4000/api/quotes,
+for example run the following curl command:
+
+```sh
+curl http://localhost:4000/api/quotes
+```
+
+You should be able to see the list of quotes.
+
+A recap of the request/response flow:
+
+- The client send a http request with the headers containing `Accept: application/json`
+- The API server receives the request and verify the request headers with the :api pipeline
+- The API call the controller then the view associated to the `/api/quotes`  GET endpoint
+and returns the http response with `Content-type: application/json` in the header
+- The client receive the response and knows from the headers that the body type of data is json
+
+
 
 ### Manage Cross Origin Resource Sharing
 
-To allow any domain names to send requests to the API,
-we need to let the server allow these request.
 By default only the requests from the same domain name as the server are allowed.
+To allow any domain names to send requests to the API,
+we need to let the server allow these requests.
 
 We can use the [cors_plug](https://hex.pm/packages/cors_plug) package to
-update the `:api` pipeline to allow other domain names.
+manage CORS:
 
 - Add the dependency `{:cors_plug, "~> 2.0"}` to `mix.exs` file and run `mix deps.get`
 - Add in `endpoint.ex` file `plug CORSPlug, origin: ["*"]`
