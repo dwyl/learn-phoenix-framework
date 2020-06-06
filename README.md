@@ -123,8 +123,8 @@ look no further than Phoenix! <br />
 
 _Many_ people/teams/companies are _already_
 using Erlang/Elixir and Phoenix and seeing phenomenal results! <br />
-Including: Adobe, Pinterest, Discord (Gamer Chat App),
-Groupon (Fave), Lonely Planet, Brightcove, Slack ...
+Including: Adobe, BBC, Spotify, Pinterest, Discord (Gamer Chat App),
+Groupon (Fave), Lonely Planet, Brightcove, Slack ... <br />
 See: https://github.com/doomspork/elixir-companies
 
 ### Who _Should_ Learn Phoenix?
@@ -221,6 +221,8 @@ come back and try these **_beginner-friendly_ examples**:
 
 + **Counter** (_realtime shared counter using Phoenix LiveView_): 
 [https://github.com/dwyl/**phoenix-liveview-counter-tutorial**](https://github.com/dwyl/phoenix-liveview-counter-tutorial)
++ **Todo List** (_step-by-step tutorial showing how to build a fully functional TodoMVC clone_):
+[https://github.com/dwyl/**phoenix-todo-list-tutorial**](https://github.com/dwyl/phoenix-todo-list-tutorial)
 + **Chat** (_realtime UI/UX using WebSockets_):
 [https://github.com/dwyl/**phoenix-chat-example**](https://github.com/dwyl/phoenix-chat-example)
 + **Encryption** (_security_):
