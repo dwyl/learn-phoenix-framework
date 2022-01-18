@@ -108,7 +108,7 @@ config :playwith_phoenix, PlaywithPhoenix.Repo,
   ssl: true
 ```
 
-The last file we need to modify is `config/confix.exs`. This file will have your `secret_key_base`.
+The last file we need to modify is `config/config.exs`. This file will have your `secret_key_base`.
 Take note (copy) of this key because we will added it to our Heroku environment variables in a bit, and replace it with `System.get_env("SECRET_KEY_BASE")`.
 
 It should look like this:
