@@ -316,7 +316,7 @@ lines than in the _equivalent_ Node.js/Java/Rails/Go app, this means
 developers are more _productive_ and there is ***less code to maintain***!
 
 5. ***Testability*** due to functional programming of all controllers!
-6. **Easy Deployment**: http://www.phoenixframework.org/docs/heroku
+6. **Easy Deployment**: https://hexdocs.pm/phoenix/heroku.html
 7. ***Zero-downtime Deployment*** is ***free***! (_again because of Erlang_). Erlang manages transitioning "_live/active_" users from the old to new version of your app without them even _noticing_ that it was upgraded/updated!!
 8. ***Built-in Monitoring/Managment*** of your app through Erlang supervisors
 mean that you know _exactly_ how your app is performing, what parts have
